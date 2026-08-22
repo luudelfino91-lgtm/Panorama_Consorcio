@@ -1,0 +1,13 @@
+# Power BI Desktop - arquivos locais que não devem ser versionados
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+**/.pbi/editorSettings.json
+**/DAXQueries/.pbi/
+
+# Arquivos de trabalho/limpeza pendente
+_to_delete/
+**/tables/_to_delete*.txt
+
+# Temporários
+*.tmp
+~$*

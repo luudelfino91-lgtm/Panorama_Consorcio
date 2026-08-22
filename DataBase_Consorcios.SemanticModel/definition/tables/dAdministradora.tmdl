@@ -1,0 +1,29 @@
+table dAdministradora
+	lineageTag: 7596a002-e825-41a4-a73e-d6c7eb4d5cfa
+
+	column CNPJ
+		dataType: int64
+		isHidden
+		lineageTag: 1ec31235-7f8e-4190-8376-894aefaf3b7a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [CNPJ]
+
+	column Administradora
+		dataType: string
+		lineageTag: 396ef0b0-d5de-406a-a984-764e2a596ed0
+		isDefaultLabel
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Administradora]
+
+	column Proibida
+		dataType: boolean
+		lineageTag: 1236b6c2-2bbf-4bdc-84de-22440b11c9c4
+		isNameInferred
+		sourceColumn: [Proibida]
+
+	partition dAdministradora = calculated
+		mode: import
+		source = VAR _base = ADDCOLUMNS ( VALUES ( ft_Consorcios[CNPJ_da_Administradora] ), "@Nome", VAR _ult = CALCULATE ( MAX ( ft_Consorcios[Data Base] ) ) RETURN CALCULATE ( MAX ( ft_Consorcios[#Nome_da_Administradora] ), ft_Consorcios[Data Base] = _ult ), "@Proibida", CALCULATE ( COUNTROWS ( FILTER ( VALUES ( ft_Consorcios[#Nome_da_Administradora] ), CONTAINSSTRING ( ft_Consorcios[#Nome_da_Administradora], "PROIB" ) ) ) ) > 0 ) RETURN SELECTCOLUMNS ( _base, "CNPJ", ft_Consorcios[CNPJ_da_Administradora], "Administradora", [@Nome], "Proibida", [@Proibida] )
+

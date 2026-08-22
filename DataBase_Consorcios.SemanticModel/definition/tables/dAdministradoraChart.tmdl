@@ -1,0 +1,13 @@
+table dAdministradoraChart
+	isHidden
+	lineageTag: b1c2d3e4-1111-2222-3333-444455556666
+
+	column Administradora
+		lineageTag: f3deeb90-f6ef-420d-913d-71ad12c55a67
+		isNameInferred
+		sourceColumn: dAdministradora[Administradora]
+
+	partition dAdministradoraChart = calculated
+		mode: import
+		source = DISTINCT ( dAdministradora[Administradora] )
+

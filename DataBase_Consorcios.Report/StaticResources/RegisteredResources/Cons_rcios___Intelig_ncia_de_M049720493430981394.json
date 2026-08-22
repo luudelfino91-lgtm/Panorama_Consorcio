@@ -1,0 +1,268 @@
+{
+  "name": "Comite dos Profissionais de Consorcio - ABEFIN",
+  "dataColors": [
+    "#0B2A4A",
+    "#1F6FB2",
+    "#3A3F44",
+    "#1E8A5F",
+    "#C0453E",
+    "#B8912E",
+    "#6B8FA8",
+    "#94A3AD"
+  ],
+  "foreground": "#1C1B2E",
+  "foregroundNeutralSecondary": "#4C4A60",
+  "foregroundNeutralTertiary": "#6B6A80",
+  "background": "#EEF2F8",
+  "backgroundLight": "#F3F2F7",
+  "backgroundNeutral": "#E1DFE8",
+  "tableAccent": "#0B2A4A",
+  "good": "#1E8A5F",
+  "neutral": "#6B6A80",
+  "bad": "#C0453E",
+  "maximum": "#2B2B3A",
+  "center": "#7F7FFF",
+  "minimum": "#E3B23C",
+  "null": "#E8E6EF",
+  "hyperlink": "#4B3B9E",
+  "textClasses": {
+    "title": {
+      "fontFace": "Segoe UI",
+      "fontSize": 13,
+      "color": "#1C1B2E"
+    },
+    "header": {
+      "fontFace": "Segoe UI",
+      "fontSize": 11,
+      "color": "#1C1B2E"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 10,
+      "color": "#4C4A60"
+    },
+    "callout": {
+      "fontFace": "Segoe UI",
+      "fontSize": 30,
+      "color": "#1C1B2E"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#E1DFE8"
+              }
+            },
+            "radius": 12
+          }
+        ],
+        "dropShadow": [
+          {
+            "show": false,
+            "preset": "Subtle"
+          }
+        ],
+        "title": [
+          {
+            "show": true,
+            "fontColor": {
+              "solid": {
+                "color": "#1C1B2E"
+              }
+            },
+            "fontSize": 13,
+            "fontFamily": "Georgia",
+            "alignment": "left"
+          }
+        ]
+      }
+    },
+    "card": {
+      "*": {
+        "labels": [
+          {
+            "color": {
+              "solid": {
+                "color": "#1C1B2E"
+              }
+            },
+            "fontSize": 28,
+            "fontFamily": "Segoe UI Light"
+          }
+        ],
+        "categoryLabels": [
+          {
+            "show": false
+          }
+        ],
+        "wordWrap": [
+          {
+            "show": true
+          }
+        ]
+      }
+    },
+    "cardVisual": {
+      "*": {
+        "calloutValue": [
+          {
+            "fontColor": {
+              "solid": {
+                "color": "#1C1B2E"
+              }
+            },
+            "fontSize": 28,
+            "fontFamily": "Segoe UI Light"
+          }
+        ]
+      }
+    },
+    "kpi": {
+      "*": {
+        "trendline": [
+          {
+            "color": {
+              "solid": {
+                "color": "#4B3B9E"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#F3F2F7"
+              }
+            },
+            "transparency": 0
+          }
+        ]
+      }
+    },
+    "slicer": {
+      "*": {
+        "general": [
+          {
+            "outlineColor": {
+              "solid": {
+                "color": "#4B3B9E"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "pivotTable": {
+      "*": {
+        "columnHeaders": [
+          {
+            "fontColor": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": "#4B3B9E"
+              }
+            },
+            "fontSize": 9.5,
+            "fontFamily": "Segoe UI Semibold",
+            "alignment": "Right",
+            "outline": "None",
+            "wordWrap": true
+          }
+        ],
+        "rowHeaders": [
+          {
+            "fontColor": {
+              "solid": {
+                "color": "#1C1B2E"
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "fontSize": 9.5,
+            "outline": "None",
+            "steppedLayout": false
+          }
+        ],
+        "values": [
+          {
+            "fontColor": {
+              "solid": {
+                "color": "#1C1B2E"
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "backColorSecondary": {
+              "solid": {
+                "color": "#F7F6FC"
+              }
+            },
+            "fontSize": 9.5,
+            "outline": "None"
+          }
+        ],
+        "grid": [
+          {
+            "gridVertical": false,
+            "gridHorizontal": true,
+            "gridHorizontalColor": {
+              "solid": {
+                "color": "#E1DFE8"
+              }
+            },
+            "gridHorizontalWeight": 1,
+            "rowPadding": 5,
+            "outlineColor": {
+              "solid": {
+                "color": "#E1DFE8"
+              }
+            },
+            "outlineWeight": 0
+          }
+        ],
+        "subTotals": [
+          {
+            "rowSubtotals": false,
+            "columnSubtotals": false
+          }
+        ],
+        "total": [
+          {
+            "show": false
+          }
+        ]
+      }
+    }
+  }
+}

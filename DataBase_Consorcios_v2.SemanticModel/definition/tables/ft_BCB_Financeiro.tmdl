@@ -1,0 +1,146 @@
+table ft_BCB_Financeiro
+	lineageTag: 87217b3f-c35b-46b9-96ce-14c5c0ff8a40
+
+	column CNPJ
+		dataType: int64
+		isHidden
+		lineageTag: d960ebb2-756c-4faf-a83f-9798da9a7fe4
+		summarizeBy: none
+		sourceColumn: CNPJ
+
+	column Administradora
+		dataType: string
+		lineageTag: c003abd0-6ed8-4c1d-aaef-3fbff23b1e46
+		summarizeBy: none
+		sourceColumn: Administradora
+
+	column Patrimonio_Liquido
+		dataType: double
+		formatString: #,0
+		lineageTag: c386958e-08ff-42f5-ba2e-10b6d8bc6b82
+		summarizeBy: sum
+		sourceColumn: Patrimonio_Liquido
+
+	column Receitas_Operacionais
+		dataType: double
+		formatString: #,0
+		lineageTag: 43704dc2-1223-4ca1-9876-66e31bf98e73
+		summarizeBy: sum
+		sourceColumn: Receitas_Operacionais
+
+	column Despesas_Operacionais
+		dataType: double
+		formatString: #,0
+		lineageTag: bd907e89-ea04-409d-a8c4-83e425dc870b
+		summarizeBy: sum
+		sourceColumn: Despesas_Operacionais
+
+	column Total_Ativo
+		dataType: double
+		isHidden
+		lineageTag: 12ad7497-2279-47c0-a9e8-6f29225a1cdb
+		summarizeBy: sum
+		sourceColumn: Total_Ativo
+
+	column Ativo_Realizavel
+		dataType: double
+		isHidden
+		lineageTag: ccc73b15-26df-414a-809b-68ac3fac5b8f
+		summarizeBy: sum
+		sourceColumn: Ativo_Realizavel
+
+	column Total_Passivo
+		dataType: double
+		formatString: #,0
+		lineageTag: 3e4a92da-d409-42fa-bd48-d4d23f618333
+		summarizeBy: sum
+		sourceColumn: Total_Passivo
+
+	column Disponibilidades
+		dataType: double
+		isHidden
+		lineageTag: 6a2aed38-f91c-480a-a448-994fbe44a98c
+		summarizeBy: sum
+		sourceColumn: Disponibilidades
+
+	column TVM
+		dataType: double
+		isHidden
+		lineageTag: 602e8601-5580-4372-9a2a-d17f92ee390e
+		summarizeBy: sum
+		sourceColumn: TVM
+
+	column Receita_Taxa_Administracao
+		dataType: double
+		formatString: #,0
+		lineageTag: c5855295-1f5e-46b1-8214-a2e20d905ba6
+		summarizeBy: sum
+		sourceColumn: Receita_Taxa_Administracao
+
+	column Ativo_Total_Calc
+		dataType: double
+		formatString: #,0
+		lineageTag: a0ccd3c9-0057-44bd-8150-41f3f46e7517
+		summarizeBy: sum
+		sourceColumn: Ativo_Total_Calc
+
+	column Resultado_Periodo
+		dataType: double
+		formatString: #,0
+		lineageTag: 8abf2ab2-b556-4bd3-9128-5fcfad163d32
+		summarizeBy: sum
+		sourceColumn: Resultado_Periodo
+
+	column Margem_Resultado
+		dataType: double
+		formatString: 0.0%
+		lineageTag: cee3a92a-ac25-4f32-ac5e-2ddcc7659cc3
+		summarizeBy: none
+		sourceColumn: Margem_Resultado
+
+	column Liquidez_Disp_TVM
+		dataType: double
+		formatString: #,0
+		lineageTag: aac7e6af-be45-4caa-aa8a-03b6ff9412fc
+		summarizeBy: sum
+		sourceColumn: Liquidez_Disp_TVM
+
+	column PL_sobre_Ativo
+		dataType: double
+		formatString: 0.0%
+		lineageTag: c2e70b0b-0e06-40f1-b1c0-71a7f6dd0a48
+		summarizeBy: none
+		sourceColumn: PL_sobre_Ativo
+
+	column Competencia
+		dataType: int64
+		lineageTag: b1b6f1eb-3cb3-474c-bdd3-f40f9906ccdf
+		summarizeBy: none
+		sourceColumn: Competencia
+
+	partition ft_BCB_Financeiro = m
+		mode: import
+		source =
+				let
+				    Origem = Csv.Document(File.Contents(Caminho & "BCB\202603CONSORCIOS.CSV"), [Delimiter=";", Columns=11, Encoding=28591, QuoteStyle=QuoteStyle.None]),
+				    #"Linhas Removidas" = Table.Skip(Origem, 3),
+				    #"Cabecalhos Promovidos" = Table.PromoteHeaders(#"Linhas Removidas", [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabecalhos Promovidos", {{"#DATA_BASE", Int64.Type}, {"DOCUMENTO", Int64.Type}, {"CNPJ", Int64.Type}, {"NOME_INSTITUICAO", type text}, {"NOME_CONTA", type text}, {"SALDO", type number}}, "pt-BR"),
+				    #"Filtrado Documento" = Table.SelectRows(#"Tipo Alterado", each [DOCUMENTO] = 4010),
+				    Contas = {"PATRIMÔNIO LÍQUIDO", "RECEITAS OPERACIONAIS", "(-) DESPESAS OPERACIONAIS", "TOTAL GERAL DO ATIVO", "Ativo Realizável", "TOTAL GERAL DO PASSIVO", "DISPONIBILIDADES", "TÍTULOS E VALORES MOBILIÁRIOS E INSTRUMENTOS FINANCEIROS DERIVATIVOS", "RECEITAS DE TAXAS DE ADMINISTRAÇÃO DE CONSÓRCIOS"},
+				    #"Filtrado Contas" = Table.SelectRows(#"Filtrado Documento", each List.Contains(Contas, [NOME_CONTA])),
+				    #"Agrupado" = Table.Group(#"Filtrado Contas", {"CNPJ", "NOME_INSTITUICAO", "NOME_CONTA"}, {{"SALDO", each List.Sum([SALDO]), type nullable number}}),
+				    #"Dinamizado" = Table.Pivot(#"Agrupado", List.Distinct(#"Agrupado"[NOME_CONTA]), "NOME_CONTA", "SALDO", List.Sum),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Dinamizado", {{"NOME_INSTITUICAO", "Administradora"}, {"PATRIMÔNIO LÍQUIDO", "Patrimonio_Liquido"}, {"RECEITAS OPERACIONAIS", "Receitas_Operacionais"}, {"(-) DESPESAS OPERACIONAIS", "Despesas_Operacionais"}, {"TOTAL GERAL DO ATIVO", "Total_Ativo"}, {"Ativo Realizável", "Ativo_Realizavel"}, {"TOTAL GERAL DO PASSIVO", "Total_Passivo"}, {"DISPONIBILIDADES", "Disponibilidades"}, {"TÍTULOS E VALORES MOBILIÁRIOS E INSTRUMENTOS FINANCEIROS DERIVATIVOS", "TVM"}, {"RECEITAS DE TAXAS DE ADMINISTRAÇÃO DE CONSÓRCIOS", "Receita_Taxa_Administracao"}}, MissingField.Ignore),
+				    #"Ativo Total Calculado" = Table.AddColumn(#"Colunas Renomeadas", "Ativo_Total_Calc", each if [Total_Ativo] <> null then [Total_Ativo] else [Ativo_Realizavel], type nullable number),
+				    #"Resultado Adicionado" = Table.AddColumn(#"Ativo Total Calculado", "Resultado_Periodo", each (if [Receitas_Operacionais] = null then 0 else [Receitas_Operacionais]) + (if [Despesas_Operacionais] = null then 0 else [Despesas_Operacionais]), type nullable number),
+				    #"Margem Adicionada" = Table.AddColumn(#"Resultado Adicionado", "Margem_Resultado", each if [Receitas_Operacionais] = null or [Receitas_Operacionais] = 0 then null else [Resultado_Periodo] / [Receitas_Operacionais], type nullable number),
+				    #"Liquidez Adicionada" = Table.AddColumn(#"Margem Adicionada", "Liquidez_Disp_TVM", each (if [Disponibilidades] = null then 0 else [Disponibilidades]) + (if [TVM] = null then 0 else [TVM]), type nullable number),
+				    #"PL sobre Ativo Adicionado" = Table.AddColumn(#"Liquidez Adicionada", "PL_sobre_Ativo", each if [Ativo_Total_Calc] = null or [Ativo_Total_Calc] = 0 then null else [Patrimonio_Liquido] / [Ativo_Total_Calc], type nullable number),
+				    #"Competencia Adicionada" = Table.AddColumn(#"PL sobre Ativo Adicionado", "Competencia", each 202603, Int64.Type),
+				    #"Tipo Final" = Table.TransformColumnTypes(#"Competencia Adicionada", {{"CNPJ", Int64.Type}, {"Administradora", type text}})
+				in
+				    #"Tipo Final"
+
+	annotation PBI_ResultType = Table
+

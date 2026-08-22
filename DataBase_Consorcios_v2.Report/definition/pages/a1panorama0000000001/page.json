@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "a1panorama0000000001",
+  "displayName": "Panorama",
+  "displayOption": "FitToWidth",
+  "height": 2926,
+  "width": 1280
+}

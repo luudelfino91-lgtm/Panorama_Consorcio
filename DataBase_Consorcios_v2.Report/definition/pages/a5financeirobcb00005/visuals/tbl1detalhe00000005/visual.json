@@ -1,0 +1,160 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "tbl1detalhe00000005",
+  "position": {
+    "x": 40,
+    "y": 1460,
+    "z": 21000,
+    "height": 420,
+    "width": 1200,
+    "tabOrder": 20000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dAdministradora"
+                    }
+                  },
+                  "Property": "Administradora"
+                }
+              },
+              "queryRef": "dAdministradora.Administradora",
+              "nativeQueryRef": "Administradora",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "PL (BCB)"
+                }
+              },
+              "queryRef": "Medidas.PL (BCB)",
+              "nativeQueryRef": "PL (BCB)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Receita Operacional (BCB)"
+                }
+              },
+              "queryRef": "Medidas.Receita Operacional (BCB)",
+              "nativeQueryRef": "Receita Operacional (BCB)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Resultado do Período (BCB)"
+                }
+              },
+              "queryRef": "Medidas.Resultado do Período (BCB)",
+              "nativeQueryRef": "Resultado do Período (BCB)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Margem do Resultado (BCB)"
+                }
+              },
+              "queryRef": "Medidas.Margem do Resultado (BCB)",
+              "nativeQueryRef": "Margem do Resultado (BCB)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Receita por Cota (BCB)"
+                }
+              },
+              "queryRef": "Medidas.Receita por Cota (BCB)",
+              "nativeQueryRef": "Receita por Cota (BCB)"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Medidas"
+                  }
+                },
+                "Property": "PL (BCB)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Todas as administradoras, com o detalhamento financeiro (BCB)'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

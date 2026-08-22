@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "DataBase_Consorcios_v2 (Proposta BCB)"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "35c3de68-6bec-400b-bef7-19c0f0068055"
+  }
+}

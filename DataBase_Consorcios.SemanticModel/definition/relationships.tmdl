@@ -1,0 +1,12 @@
+relationship ft_Consorcios_Código_do_segmento_dSegmento_CodSegmento
+	fromColumn: ft_Consorcios.Código_do_segmento
+	toColumn: dSegmento.CodSegmento
+
+relationship 'ft_Consorcios_Data Base_dCalendario_Data'
+	fromColumn: ft_Consorcios.'Data Base'
+	toColumn: dCalendario.Data
+
+relationship ft_Consorcios_CNPJ_da_Administradora_dAdministradora_CNPJ
+	fromColumn: ft_Consorcios.CNPJ_da_Administradora
+	toColumn: dAdministradora.CNPJ
+

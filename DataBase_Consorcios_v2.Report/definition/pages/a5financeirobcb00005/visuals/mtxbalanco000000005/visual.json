@@ -1,0 +1,147 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "mtxbalanco000000005",
+  "position": {
+    "x": 40,
+    "y": 1010,
+    "z": 20000,
+    "height": 380,
+    "width": 1200,
+    "tabOrder": 18000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ft_BCB_ContaDetalhe"
+                    }
+                  },
+                  "Property": "Grupo"
+                }
+              },
+              "queryRef": "ft_BCB_ContaDetalhe.Grupo",
+              "nativeQueryRef": "Grupo",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ft_BCB_ContaDetalhe"
+                    }
+                  },
+                  "Property": "Conta"
+                }
+              },
+              "queryRef": "ft_BCB_ContaDetalhe.Conta",
+              "nativeQueryRef": "Conta",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Saldo do Item (BCB)"
+                }
+              },
+              "queryRef": "Medidas.Saldo do Item (BCB)",
+              "nativeQueryRef": "Saldo do Item (BCB)"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Estrutura padrão do balancete (documento 4010, BCB)'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "68c209be0f46b4525463",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "ft_BCB_ContaDetalhe"
+              }
+            },
+            "Property": "Grupo"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6194ae58c3555080f625",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "ft_BCB_ContaDetalhe"
+              }
+            },
+            "Property": "Conta"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "65752d74590788718bfb",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Medidas"
+              }
+            },
+            "Property": "Saldo do Item (BCB)"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

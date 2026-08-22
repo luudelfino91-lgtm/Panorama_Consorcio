@@ -1,0 +1,26 @@
+table dSegmento
+	lineageTag: d6f5b20e-1996-495c-9f8c-1fcf97980491
+
+	column CodSegmento
+		dataType: int64
+		lineageTag: a18d06de-6ff9-40e8-9ff2-e014d7d4c0cb
+		isNameInferred
+		sourceColumn: [CodSegmento]
+
+	column Segmento
+		dataType: string
+		lineageTag: dde0eeb0-09e0-41d3-a712-8fee71bb607b
+		isNameInferred
+		sourceColumn: [Segmento]
+		sortByColumn: Ordem
+
+	column Ordem
+		dataType: int64
+		lineageTag: 87c6cc6f-446a-434d-9f9f-7693efec140c
+		isNameInferred
+		sourceColumn: [Ordem]
+
+	partition dSegmento = calculated
+		mode: import
+		source = DATATABLE("CodSegmento", INTEGER, "Segmento", STRING, "Ordem", INTEGER, {{1,"Imóveis",3},{2,"Pesados",4},{3,"Motocicletas",1},{4,"Automóveis",2},{5,"Serviços",5},{6,"Eletroeletrônicos",6}})
+

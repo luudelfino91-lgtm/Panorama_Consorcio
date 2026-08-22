@@ -1,0 +1,24 @@
+table PesoSolidez
+	lineageTag: 4dcfde10-3906-49b9-8835-77279df1c910
+
+	/// Peso padrão do pilar Solidez usado no Simulador de Perfil (valor inicial: 40). Ajustável pelo usuário na aba Simulador.
+	measure 'PesoSolidez Value' = SELECTEDVALUE(PesoSolidez[PesoSolidez], 40)
+		formatString: 0
+		displayFolder: 22 Simulador\Parâmetros
+		lineageTag: 97bb6293-d73d-4597-b450-0148ee3463da
+
+	column PesoSolidez
+		dataType: int64
+		formatString: 0
+		lineageTag: 2d7dd6ec-6c4d-4461-a4f2-778a46676fa0
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PesoSolidez = calculated
+		mode: import
+		source = GENERATESERIES(0, 100, 5)
+
+	annotation PBI_Id = a3d513ba19a2467c82c7fc53b56262bd
+

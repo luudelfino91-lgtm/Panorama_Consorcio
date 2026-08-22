@@ -1,0 +1,174 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "f6de0d02947abd856abf",
+  "position": {
+    "x": 549.68992248062,
+    "y": 864.38661653370639,
+    "z": 24000,
+    "height": 216,
+    "width": 690,
+    "tabOrder": 18000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dAdministradora"
+                    }
+                  },
+                  "Property": "Administradora"
+                }
+              },
+              "queryRef": "dAdministradora.Administradora",
+              "nativeQueryRef": "Administradora",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Carteira Ativa (Fim)"
+                }
+              },
+              "queryRef": "Medidas.Carteira Ativa (Fim)",
+              "nativeQueryRef": "Carteira Ativa (Fim)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Share Carteira (Fim) %"
+                }
+              },
+              "queryRef": "Medidas.Share Carteira (Fim) %",
+              "nativeQueryRef": "Share Carteira (Fim) %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "% Inadimplência (Fim)"
+                }
+              },
+              "queryRef": "Medidas.% Inadimplência (Fim)",
+              "nativeQueryRef": "% Inadimplência (Fim)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Δ vs Mercado (p.p.)"
+                }
+              },
+              "queryRef": "Medidas.Δ vs Mercado (p.p.)",
+              "nativeQueryRef": "Δ vs Mercado (p.p.)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Taxa Adm Carteira %"
+                }
+              },
+              "queryRef": "Medidas.Taxa Adm Carteira %",
+              "nativeQueryRef": "Taxa Adm Carteira %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Taxa Contemplação (Atual) %"
+                }
+              },
+              "queryRef": "Medidas.Taxa Contemplação (Atual) %",
+              "nativeQueryRef": "Taxa Contemplação (Atual) %"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Medidas"
+                  }
+                },
+                "Property": "Carteira Ativa (Fim)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Comparativo de carteira, risco, custo e contemplação'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

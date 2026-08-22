@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "DataBase_Consorcios"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "fbd313bc-32d7-41f8-8323-8939aa9215d8"
+  }
+}

@@ -1,0 +1,16 @@
+expression Caminho = "C:\Users\lucas\Desktop\DataBase_Comite_Consorcio\Base\" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+	lineageTag: a6cb49a1-603d-4534-acfa-cccd5aeec35a
+	queryGroup: Parametros
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression Base = "Consolidado.xlsx" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+	lineageTag: e114e5b7-663f-4c43-b4cf-b293fe7f6fb5
+	queryGroup: Parametros
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+

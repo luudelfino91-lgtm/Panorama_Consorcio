@@ -1,0 +1,36 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-BR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+queryGroup Parametros
+
+	annotation PBI_QueryGroupOrder = 0
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["ft_Consorcios","dCalendario","Caminho","Base","ft_BCB_Financeiro","ft_BCB_ContaDetalhe"]
+
+annotation PBI_ProTooling = ["MCP-PBIModeling","DaxQueryView_Desktop","DevMode"]
+
+ref table ft_Consorcios
+ref table Medidas
+ref table dCalendario
+ref table dSegmento
+ref table dAdministradora
+ref table PesoSolidez
+ref table PesoSaude
+ref table PesoContempl
+ref table PesoCusto
+ref table dAdministradoraChart
+ref table ft_BCB_Financeiro
+ref table TopNFinanceiro
+ref table LimiarConcentracao
+ref table ft_BCB_ContaDetalhe
+ref table FaixaConcentracao
+
+ref cultureInfo en-US
+
