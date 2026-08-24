@@ -21,10 +21,6 @@ ref table Medidas
 ref table dCalendario
 ref table dSegmento
 ref table dAdministradora
-ref table PesoSolidez
-ref table PesoSaude
-ref table PesoContempl
-ref table PesoCusto
 ref table dAdministradoraChart
 ref table ft_BCB_Financeiro
 ref table TopNFinanceiro

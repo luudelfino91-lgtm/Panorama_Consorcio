@@ -3,7 +3,7 @@
   "name": "f6de0d02947abd856abf",
   "position": {
     "x": 549.68992248062,
-    "y": 920.38661653370639,
+    "y": 920.3866165337064,
     "z": 26000,
     "height": 216,
     "width": 690,
@@ -34,6 +34,20 @@
         },
         "Values": {
           "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Porte (Carteira Ativa)"
+                }
+              },
+              "queryRef": "Medidas.Porte (Carteira Ativa)",
+              "nativeQueryRef": "Porte (Carteira Ativa)"
+            },
             {
               "field": {
                 "Measure": {
