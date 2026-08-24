@@ -328,7 +328,7 @@ table Medidas
 		displayFolder: 15 Cancelamento
 		lineageTag: c0000001-1111-4222-8333-000000000010
 
-	/// Cancelamentos ocorridos dentro do recorte: variação do estoque acumulado entre o mês anterior ao período e o fim dele. Fica em branco quando não há mês anterior na base.
+	/// Cancelamentos ocorridos dentro do recorte: variação do estoque acumulado entre o mês anterior ao período e o fim dele. ATENÇÃO: o acumulado de cotas excluídas sofre retificações na fonte (18,7% das variações mensais por administradora são negativas, e 159 das 190 administradoras têm ao menos uma queda no acumulado). No agregado do mercado o comportamento é estável (7 quedas em 88 meses), então esta medida é confiável em nível de mercado e de segmento, mas NÃO deve ser usada para ranquear administradoras sem tratamento das retificações. Fica em branco quando não há mês anterior na base.
 	measure 'Cotas Canceladas no Período' =
 			VAR _ini = MIN ( dCalendario[Data] )
 			VAR _fim = [Cotas Canceladas (Acum)]
@@ -340,7 +340,7 @@ table Medidas
 		displayFolder: 15 Cancelamento
 		lineageTag: c0000001-1111-4222-8333-000000000011
 
-	/// Cancelamentos por 100 cotas vendidas no mesmo período. Lê a qualidade da venda: quanto do que entra não se sustenta.
+	/// Cancelamentos por 100 cotas vendidas no mesmo período. Lê a qualidade da venda: quanto do que entra não se sustenta. Herda a ressalva de Cotas Canceladas no Período: usar em nível de mercado e segmento, não para ranquear administradoras.
 	measure 'Canceladas por 100 Vendidas' = DIVIDE ( [Cotas Canceladas no Período], [Cotas Comercializadas] ) * 100
 		formatString: #,0.0
 		displayFolder: 15 Cancelamento
