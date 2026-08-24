@@ -131,6 +131,20 @@
               },
               "queryRef": "Medidas.Taxa Contemplação (Atual) %",
               "nativeQueryRef": "Taxa Contemplação (Atual) %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Índice de Contemplação (vs mix)"
+                }
+              },
+              "queryRef": "Medidas.Índice de Contemplação (vs mix)",
+              "nativeQueryRef": "Índice de Contemplação (vs mix)"
             }
           ]
         }

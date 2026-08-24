@@ -131,6 +131,62 @@
               },
               "queryRef": "Medidas.Taxa Adm Carteira %",
               "nativeQueryRef": "Taxa Adm Carteira %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Taxa Contemplação Mensal %"
+                }
+              },
+              "queryRef": "Medidas.Taxa Contemplação Mensal %",
+              "nativeQueryRef": "Taxa Contemplação Mensal %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Espera Implícita (meses)"
+                }
+              },
+              "queryRef": "Medidas.Espera Implícita (meses)",
+              "nativeQueryRef": "Espera Implícita (meses)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Canceladas por 100 Vendidas"
+                }
+              },
+              "queryRef": "Medidas.Canceladas por 100 Vendidas",
+              "nativeQueryRef": "Canceladas por 100 Vendidas"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "% Crédito Pendente"
+                }
+              },
+              "queryRef": "Medidas.% Crédito Pendente",
+              "nativeQueryRef": "% Crédito Pendente"
             }
           ]
         }

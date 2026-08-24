@@ -1,77 +1,85 @@
 # Panorama Consórcio — Comitê ABEFIN
 
-Painel de inteligência de mercado do segmento de consórcios, construído em Power BI a partir de duas fontes de dados públicas/oficiais: a base mensal da ABAC (operacional — cotas, grupos, contemplações, inadimplência) e, na versão proposta (v2), o balancete mensal do Banco Central do Brasil (financeiro — patrimônio, receita, resultado das administradoras).
+Painel de Power BI (formato PBIP) de inteligência de mercado sobre o setor brasileiro de consórcios, construído a partir de dados públicos ABAC/BACEN de janeiro de 2019 a maio de 2026 — 160 administradoras registradas, 124 com carteira ativa, 6 segmentos (Imóveis, Automóveis, Motocicletas, Serviços, Pesados, Eletroeletrônicos).
 
-O projeto é mantido para o Comitê dos Profissionais de Consórcio (ABEFIN) e serve como base analítica para acompanhar tendências de vendas, inadimplência, concentração de mercado e saúde financeira das administradoras de consórcio no Brasil.
+O projeto nasceu de uma pergunta de pesquisa própria — há vínculo entre o crescimento do consórcio e a alta da taxa de juros, e qual o impacto da inadimplência nesse período — e evoluiu para material oficial do Comitê dos Profissionais de Consórcio (ABEFIN).
 
 ## Estrutura do repositório
 
 ```
-DataBase_Consorcios.pbip                  → projeto oficial em uso (Power BI Project)
-DataBase_Consorcios.Report/               → definição do relatório (páginas, visuais) da versão oficial
-DataBase_Consorcios.SemanticModel/        → modelo semântico (tabelas, medidas DAX, relacionamentos) da versão oficial
+DataBase_Consorcios.pbip                  → projeto oficial em uso
+DataBase_Consorcios.Report/               → relatório da versão oficial
+DataBase_Consorcios.SemanticModel/        → modelo semântico da versão oficial
 
 DataBase_Consorcios_v2.pbip                → cópia de trabalho com a proposta da página financeira (BCB)
-DataBase_Consorcios_v2.Report/             → relatório da v2, com a 5ª página "Financeiro (BCB)" já implementada
-DataBase_Consorcios_v2.SemanticModel/      → modelo semântico da v2, com as tabelas e medidas do BCB
+DataBase_Consorcios_v2.Report/             → relatório da v2, com a página "Financeiro (BCB)"
+DataBase_Consorcios_v2.SemanticModel/      → modelo semântico da v2
 
-Base/                                      → dados-fonte
-  Consolidado.xlsx                         → base operacional mensal (ABAC), fonte do modelo oficial
-  BCB/202603CONSORCIOS.CSV                 → balancete mensal do Banco Central (documento 4010), competência 03/2026
+Base/
+  Consolidado.xlsx                         → base operacional mensal (ABAC), aba SegmentosExtraidos, 73.536 linhas
+  BCB/202603CONSORCIOS.CSV                 → balancete do Banco Central (documento 4010), competência 03/2026
 
-docs/                                      → documentação de apoio (avaliação técnica e resumo de implementação da proposta BCB)
+docs/                                      → dicionário de dados e documentos técnicos da proposta BCB
 ```
 
-Os arquivos `.pbip` são projetos Power BI em formato texto (Power BI Project) — cada um é acompanhado das pastas `.Report` e `.SemanticModel` correspondentes, versionáveis normalmente em Git. Para abrir, use o Power BI Desktop e dê duplo-clique no `.pbip` desejado; as pastas `.Report`/`.SemanticModel` são lidas automaticamente, não precisam ser abertas separadamente.
-
-Também existe um `DataBase_Consorcios.pbix` (o binário compilado da versão oficial) mantido no repositório por conveniência de distribuição — quem só precisa visualizar o relatório pronto pode abrir direto esse arquivo, sem precisar do Power BI Desktop em modo de projeto.
+Os `.pbip` são projetos Power BI em formato texto, versionáveis normalmente em Git. Para abrir, dê duplo-clique no `.pbip` no Power BI Desktop — as pastas `.Report`/`.SemanticModel` são lidas automaticamente. Há também um `DataBase_Consorcios.pbix` mantido por conveniência, para quem só precisa visualizar o relatório pronto.
 
 ## Duas versões, dois propósitos
 
-- **`DataBase_Consorcios` (oficial):** é o material em uso pelo Comitê. Cobre 4 páginas — Panorama, Análise, Simulador e Documentação — todas baseadas em dados operacionais (ABAC): cotas comercializadas, grupos ativos, contemplações e inadimplência de cotas, por administradora e por segmento (Imóveis, Pesados, Motocicletas, Automóveis, Serviços, Eletroeletrônicos).
-- **`DataBase_Consorcios_v2` (proposta):** cópia independente e completa do projeto oficial, criada para avaliar uma 5ª página — "Financeiro (BCB)" — sem qualquer risco ao material oficial. Adiciona ao modelo dados de patrimônio líquido, receita, resultado e margem das administradoras, extraídos do balancete público do Banco Central, cruzados com a base operacional pelo CNPJ. **Ainda não substitui a versão oficial — depende de aprovação da presidência do Comitê** (ver `docs/Proposta_Nova_Pagina_BCB.md`).
+- **`DataBase_Consorcios` (oficial)** — material em uso pelo Comitê. Três páginas: **Panorama**, **Análise** e **Documentação**, sobre dados operacionais da ABAC.
+- **`DataBase_Consorcios_v2` (proposta)** — cópia independente que acrescenta a 4ª página **Financeiro (BCB)**, com patrimônio líquido, receita, resultado e margem das administradoras, cruzados com a base operacional pelo CNPJ. **Depende de aprovação da presidência** (ver `docs/Proposta_Nova_Pagina_BCB.md`).
 
-## O que os dados cobrem
+## Páginas
 
-### Base operacional (ABAC — `Consolidado.xlsx`)
-Granularidade: 1 linha por administradora × segmento × mês. Traz cotas comercializadas, grupos ativos, cotas contempladas e não contempladas, cotas em dia e cotas inadimplentes — a base de todos os indicadores de vendas e inadimplência operacional do relatório oficial.
+| Página | Conteúdo |
+|---|---|
+| **Panorama** | Leitura narrativa do mercado em quatro atos: tamanho, segmentos, concentração de risco e leitura metodológica. |
+| **Análise** | Tela interativa: ficha individual da administradora, comparador entre administradoras e abertura por segmento. |
+| **Documentação** | Dicionário completo das medidas, gerado a partir do próprio modelo semântico. |
+| **Financeiro (BCB)** *(só v2)* | KPIs patrimoniais do sistema, concentração de mercado e ranking por PL e receita. |
 
-### Base financeira (BCB — `202603CONSORCIOS.CSV`)
-Balancete patrimonial das administradoras de consórcio, documento 4010, publicado mensalmente pelo Banco Central. Cobertura confirmada: das 117 administradoras ativas no modelo operacional (competência 03/2026), 110 (99,6% da carteira ativa) têm registro financeiro correspondente no BCB via CNPJ. O arquivo do BCB também revela 15 administradoras registradas no Banco Central que não aparecem hoje na base operacional monitorada pelo Comitê — um gap reportado em `docs/Proposta_Nova_Pagina_BCB.md`.
+> **Ressalva conhecida sobre a página Panorama:** ela é HTML estático — não referencia nenhuma medida do modelo. Os números foram auditados contra a base e conferem exatamente para a competência mai/2026, mas **não acompanham atualização de dados**. É uma decisão consciente por ora; a página será repensada quando a narrativa mudar.
 
-## Principais achados já documentados
-
-- **Concentração de mercado:** as 5 maiores administradoras por Patrimônio Líquido concentram 58,5% do PL do sistema (HHI = 1.469); por receita de taxa de administração a concentração é bem menor (top 5 = 48,5%, HHI = 602) — o mercado é mais pulverizado em faturamento do que em patrimônio.
-- **Saúde financeira:** nenhuma administradora opera com Patrimônio Líquido negativo, mas 21 de 124 administradoras (17%) fecharam a competência com resultado negativo.
-- **Inadimplência × resultado financeiro:** correlação fraca e negativa (r ≈ −0,22) — a inadimplência de cotas explica só uma pequena parte do resultado financeiro das administradoras; estrutura de custos pesa mais.
-- Detalhamento completo, ressalvas metodológicas e a proposta de conteúdo da nova página estão em `docs/Proposta_Nova_Pagina_BCB.md` e `docs/Implementacao_v2_BCB.md`.
-
-## Modelo de dados (resumo)
+## Modelo de dados
 
 | Tabela | Papel | Granularidade |
 |---|---|---|
 | `ft_Consorcios` | Fato operacional (ABAC) | Administradora × Segmento × Mês |
-| `ft_BCB_Financeiro` *(só v2)* | Fato financeiro (BCB) | Administradora × Competência |
-| `ft_BCB_ContaDetalhe` *(só v2)* | Detalhe de contas do balancete BCB | Administradora × Conta contábil |
-| `dAdministradora` | Dimensão, calculada a partir do `ft_Consorcios` | 1 linha por CNPJ |
-| `dSegmento` | Dimensão fixa (6 segmentos) | 1 linha por segmento |
+| `ft_BCB_Financeiro` *(v2)* | Fato financeiro (BCB) | Administradora × Competência |
+| `ft_BCB_ContaDetalhe` *(v2)* | Detalhe de contas do balancete | Administradora × Conta contábil |
+| `dAdministradora` | Dimensão calculada a partir do fato | 1 linha por CNPJ |
+| `dSegmento` | Dimensão fixa | 6 segmentos |
 | `dCalendario` | Calendário para inteligência de tempo | 1 linha por dia |
-| `Medidas` | Tabela dedicada a medidas DAX (79 medidas na v2, 55 na versão oficial) | — |
-| `PesoSolidez`, `PesoSaude`, `PesoContempl`, `PesoCusto` | Parâmetros do simulador de score de administradoras | — |
-| `TopNFinanceiro`, `LimiarConcentracao`, `FaixaConcentracao` *(só v2)* | Parâmetros dos visuais de ranking/concentração da página BCB | — |
+| `Medidas` | Tabela dedicada às medidas DAX (78 na v2, 54 na oficial) | — |
+| `dAdministradoraChart` | Apoio ao eixo desacoplado do gráfico por administradora | — |
+| `TopNFinanceiro`, `LimiarConcentracao`, `FaixaConcentracao` *(v2)* | Parâmetros dos visuais da página Financeiro | — |
 
-O relacionamento entre as bases operacional e financeira é feito pelo CNPJ raiz (8 dígitos) da administradora, no mesmo padrão usado em todo o modelo.
+A junção entre a base operacional e a financeira é feita pelo CNPJ raiz (8 dígitos).
+
+### Grupos de medidas
+
+`01 Base` · `03 Risco` · `04 Taxa` · `08 Atual (sem filtro)` · `12 Inadimplência` (Administradora e Composição) · `13 Grupos` · `14 Contemplação` · `15 Cancelamento` · `16 Ciclo da Cota` · `21 Dinâmico` · `23 Financeiro (BCB)` · `30 HTML`
+
+Detalhamento completo em [`docs/DICIONARIO_DE_DADOS.md`](docs/DICIONARIO_DE_DADOS.md) e na página Documentação do próprio relatório.
 
 ## Como abrir e atualizar
 
-1. Abra `DataBase_Consorcios.pbip` (oficial) ou `DataBase_Consorcios_v2.pbip` (proposta) no Power BI Desktop.
-2. Nos parâmetros do Power Query (`Caminho`, `Base`), confirme que o caminho aponta para a pasta `Base/` deste repositório.
-3. Clique em **Atualizar** (Refresh) para recarregar os dados — os arquivos `.pbip` guardam a definição do modelo e do relatório, não os dados em si.
+1. Abra `DataBase_Consorcios.pbip` ou `DataBase_Consorcios_v2.pbip` no Power BI Desktop.
+2. Confirme que os parâmetros do Power Query (`Caminho`, `Base`) apontam para a pasta `Base/` deste repositório.
+3. Clique em **Atualizar** — os `.pbip` guardam a definição do modelo e do relatório, não os dados.
+
+## Princípios editoriais
+
+O material é **descritivo, não avaliativo**. Decisões metodológicas adotadas:
+
+- **Sem linguagem de julgamento.** Não há "melhor" ou "pior" administradora, nem "nicho arriscado" ou "seguro". Os rankings são rotulados pelo que medem: maiores e menores taxas de inadimplência.
+- **Volume e taxa são apresentados separados.** Uma administradora grande naturalmente concentra mais cotas em atraso; isso é aritmética de porte, não desempenho. Por isso a tabela de concentração mostra fatia da carteira e fatia da inadimplência lado a lado.
+- **Comparações controladas por segmento.** O `Índice de Contemplação (vs mix)` compara cada administradora com a média do mercado nos segmentos em que ela própria atua — metade da dispersão bruta entre administradoras é mix de produto, não desempenho.
+- **Faixas fixas, não relativas à média.** O farol de inadimplência usa cortes fixos (azul <10%, amarelo 10–20%, vermelho >20%), para a leitura não mudar conforme o filtro aplicado.
+- **Cotas canceladas não entram na inadimplência.** A métrica usa apenas cotas ativas. Cancelamentos são acompanhados em medidas próprias.
 
 ## Avisos legais e de uso
 
-O material não constitui avaliação de crédito, rating ou recomendação de investimento. Os dados financeiros do Banco Central usados na proposta v2 são públicos, mas de leitura institucionalmente sensível (expõem resultado e patrimônio por administradora nomeada) — por isso essa página permanece em avaliação e não faz parte do material oficial distribuído até aprovação da presidência.
+O material não constitui avaliação de crédito, rating ou recomendação de investimento. Os dados financeiros do Banco Central usados na proposta v2 são públicos, mas de leitura institucionalmente sensível — expõem resultado e patrimônio por administradora nomeada. Por isso a página permanece em avaliação e não faz parte do material oficial até aprovação da presidência.
 
-## Histórico
-
-Este repositório foi versionado a partir da pasta de trabalho local do Comitê, consolidando o material oficial e a proposta técnica da página financeira (BCB) desenvolvida em agosto de 2026.
+**Limitação de qualidade de dados conhecida:** o acumulado de cotas excluídas sofre retificações na fonte — 18,7% das variações mensais por administradora são negativas e 159 das 190 administradoras têm ao menos uma queda no acumulado. No agregado do mercado o comportamento é estável (7 quedas em 88 meses). As medidas de cancelamento servem para leitura de mercado e de segmento, **não para ranquear administradoras**.
