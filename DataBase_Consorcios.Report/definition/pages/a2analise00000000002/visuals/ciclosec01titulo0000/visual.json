@@ -1,29 +1,35 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "sc002seloabefin000002",
+  "name": "ciclosec01titulo0000",
   "position": {
-    "x": 1200,
-    "y": 2026.4,
-    "z": 1000,
-    "height": 60,
-    "width": 60,
-    "tabOrder": 2000
+    "x": 40,
+    "y": 1479.0,
+    "z": 7900,
+    "height": 42,
+    "width": 1200,
+    "tabOrder": 28000
   },
   "visual": {
-    "visualType": "image",
+    "visualType": "textbox",
     "objects": {
       "general": [
         {
           "properties": {
-            "imageUrl": {
-              "expr": {
-                "ResourcePackageItem": {
-                  "PackageName": "RegisteredResources",
-                  "PackageType": 1,
-                  "ItemName": "SeloComiteConsorcioABEFIN.png"
-                }
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Ciclo da cota: cancelamento, contemplação e crédito em uso",
+                    "textStyle": {
+                      "fontSize": "14pt",
+                      "fontWeight": "bold",
+                      "color": "#0B2A4A"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
               }
-            }
+            ]
           }
         }
       ]
@@ -42,20 +48,7 @@
           }
         }
       ],
-      "border": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "dropShadow": [
+      "title": [
         {
           "properties": {
             "show": {
@@ -68,7 +61,6 @@
           }
         }
       ]
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }

@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "3624b2bfae3a04e480c6",
+  "name": "ciclonota01000000000",
   "position": {
     "x": 40,
-    "y": 1958.6428571428573,
-    "z": 8000,
-    "height": 48.85714285714286,
+    "y": 1889.0,
+    "z": 7970,
+    "height": 40,
     "width": 1200,
-    "tabOrder": 27000
+    "tabOrder": 28700
   },
   "visual": {
     "visualType": "textbox",
@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Análise e visualização por Lucas Delfino  ·  Dados, estratégia e gestão  ·  linkedin.com/in/lucasdelfino-",
+                    "value": "Cotas canceladas não entram no cálculo de inadimplência, que usa apenas cotas ativas. O acumulado de canceladas sofre retificações na fonte: leitura confiável em nível de mercado e de segmento, não para comparar administradoras. Espera implícita projeta a taxa de contemplação observada, não é prazo prometido.",
                     "textStyle": {
                       "fontSize": "8.5pt",
                       "color": "#6B6A80"
@@ -60,7 +60,6 @@
           }
         }
       ]
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }
