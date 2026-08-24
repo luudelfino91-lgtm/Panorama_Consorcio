@@ -84,11 +84,11 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "% Inadimplência Fila"
+                  "Property": "% Inadimplência Não Contemplados"
                 }
               },
-              "queryRef": "Medidas.% Inadimplência Fila",
-              "nativeQueryRef": "% Inadimplência Fila"
+              "queryRef": "Medidas.% Inadimplência Não Contemplados",
+              "nativeQueryRef": "% Inadimplência Não Contemplados"
             },
             {
               "field": {
@@ -98,11 +98,11 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Δ Contemplados vs Fila (p.p.)"
+                  "Property": "Δ Contemplados vs Não Contemplados (p.p.)"
                 }
               },
-              "queryRef": "Medidas.Δ Contemplados vs Fila (p.p.)",
-              "nativeQueryRef": "Δ Contemplados vs Fila (p.p.)"
+              "queryRef": "Medidas.Δ Contemplados vs Não Contemplados (p.p.)",
+              "nativeQueryRef": "Δ Contemplados vs Não Contemplados (p.p.)"
             },
             {
               "field": {

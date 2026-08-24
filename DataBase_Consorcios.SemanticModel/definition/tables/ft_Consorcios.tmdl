@@ -109,6 +109,60 @@ table ft_Consorcios
 
 		annotation SummarizationSetBy = Automatic
 
+	column Quantidade_de_grupos_constituídos_no_mês
+		dataType: int64
+		formatString: 0
+		lineageTag: b1c2d3e4-0001-4a10-9f01-7ac3e5d10001
+		summarizeBy: sum
+		sourceColumn: Quantidade_de_grupos_constituídos_no_mês
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantidade_de_grupos_encerrados_no_mês
+		dataType: int64
+		formatString: 0
+		lineageTag: b1c2d3e4-0002-4a10-9f01-7ac3e5d10002
+		summarizeBy: sum
+		sourceColumn: Quantidade_de_grupos_encerrados_no_mês
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantidade_de_cotas_excluídas
+		dataType: int64
+		formatString: 0
+		lineageTag: b1c2d3e4-0003-4a10-9f01-7ac3e5d10003
+		summarizeBy: sum
+		sourceColumn: Quantidade_de_cotas_excluídas
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantidade_de_cotas_excluídas_a_comercializar
+		dataType: int64
+		formatString: 0
+		lineageTag: b1c2d3e4-0004-4a10-9f01-7ac3e5d10004
+		summarizeBy: sum
+		sourceColumn: Quantidade_de_cotas_excluídas_a_comercializar
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantidade_de_cotas_ativas_quitadas
+		dataType: int64
+		formatString: 0
+		lineageTag: b1c2d3e4-0005-4a10-9f01-7ac3e5d10005
+		summarizeBy: sum
+		sourceColumn: Quantidade_de_cotas_ativas_quitadas
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantidade_de_cotas_ativas_com_crédito_pendente_de_utilização
+		dataType: int64
+		formatString: 0
+		lineageTag: b1c2d3e4-0006-4a10-9f01-7ac3e5d10006
+		summarizeBy: sum
+		sourceColumn: Quantidade_de_cotas_ativas_com_crédito_pendente_de_utilização
+
+		annotation SummarizationSetBy = Automatic
+
 	column 'Data Base'
 		dataType: dateTime
 		formatString: dd/mm/yy
@@ -130,8 +184,8 @@ table ft_Consorcios
 				    SegmentosExtraidos_Table = Source{[Item="SegmentosExtraidos",Kind="Table"]}[Data],
 				    #"Added Custom" = Table.AddColumn(SegmentosExtraidos_Table, "Data Base", each "01/" & Text.End(Text.From([Data_base]),2) & "/" & Text.Start(Text.From([Data_base]),4)),
 				    #"Removed Columns" = Table.RemoveColumns(#"Added Custom",{"Data_base"}),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Removed Columns",{{"#Nome_da_Administradora", type text}, {"CNPJ_da_Administradora", Int64.Type}, {"Código_do_segmento", Int64.Type}, {"Taxa_de_administração", type number}, {"Quantidade_de_grupos_ativos", Int64.Type}, {"Quantidade_de_cotas_comercializadas_no_mês", Int64.Type}, {"Quantidade_acumulada_de_cotas_ativas_contempladas", Int64.Type}, {"Quantidade_de_cotas_ativas_não_contempladas", Int64.Type}, {"Quantidade_de_cotas_ativas_contempladas_no_mês", Int64.Type}, {"Quantidade_de_cotas_ativas_em_dia", Int64.Type}, {"Quantidade_de_cotas_ativas_contempladas_inadimplentes", Int64.Type}, {"Quantidade_de_cotas_ativas_não_contempladas_inadimplentes", Int64.Type}, {"Data Base", type date}}),
-				    #"Colunas Removidas" = Table.RemoveColumns(#"Changed Type",{"Quantidade_de_cotas_ativas_com_crédito_pendente_de_utilização", "Quantidade_de_cotas_ativas_quitadas", "Quantidade_de_cotas_excluídas", "Quantidade_de_cotas_excluídas_a_comercializar", "Quantidade_de_grupos_constituídos_no_mês", "Quantidade_de_grupos_encerrados_no_mês"}, MissingField.Ignore)
+				    #"Changed Type" = Table.TransformColumnTypes(#"Removed Columns",{{"#Nome_da_Administradora", type text}, {"CNPJ_da_Administradora", Int64.Type}, {"Código_do_segmento", Int64.Type}, {"Taxa_de_administração", type number}, {"Quantidade_de_grupos_ativos", Int64.Type}, {"Quantidade_de_cotas_comercializadas_no_mês", Int64.Type}, {"Quantidade_acumulada_de_cotas_ativas_contempladas", Int64.Type}, {"Quantidade_de_cotas_ativas_não_contempladas", Int64.Type}, {"Quantidade_de_cotas_ativas_contempladas_no_mês", Int64.Type}, {"Quantidade_de_cotas_ativas_em_dia", Int64.Type}, {"Quantidade_de_cotas_ativas_contempladas_inadimplentes", Int64.Type}, {"Quantidade_de_cotas_ativas_não_contempladas_inadimplentes", Int64.Type}, {"Quantidade_de_grupos_constituídos_no_mês", Int64.Type}, {"Quantidade_de_grupos_encerrados_no_mês", Int64.Type}, {"Quantidade_de_cotas_excluídas", Int64.Type}, {"Quantidade_de_cotas_excluídas_a_comercializar", Int64.Type}, {"Quantidade_de_cotas_ativas_quitadas", Int64.Type}, {"Quantidade_de_cotas_ativas_com_crédito_pendente_de_utilização", Int64.Type}, {"Data Base", type date}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Changed Type", {}, MissingField.Ignore)
 				in
 				    #"Colunas Removidas"
 

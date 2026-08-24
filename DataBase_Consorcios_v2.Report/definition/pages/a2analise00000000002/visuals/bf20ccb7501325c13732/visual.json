@@ -23,11 +23,11 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "% Inadimplência Fila"
+                  "Property": "% Inadimplência Não Contemplados"
                 }
               },
-              "queryRef": "Medidas.% Inadimplência Fila",
-              "nativeQueryRef": "% Inadimplência Fila"
+              "queryRef": "Medidas.% Inadimplência Não Contemplados",
+              "nativeQueryRef": "% Inadimplência Não Contemplados"
             }
           ]
         }
@@ -75,7 +75,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Inadimplência da fila'"
+                  "Value": "'Inadimplência dos não contemplados'"
                 }
               }
             },
