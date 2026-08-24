@@ -436,3 +436,10 @@ table Medidas
 			    )
 		displayFolder: 12 Inadimplência\Administradora
 		lineageTag: dde319fc-cdec-4a55-aa41-c589fff03dfb
+
+	partition Medidas = calculated
+		mode: import
+		source = {0}
+
+	annotation PBI_Id = b24420ff4a8a4ca0b502f6a852b2456e
+
