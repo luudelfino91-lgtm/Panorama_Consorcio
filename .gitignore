@@ -11,3 +11,6 @@ _to_delete/
 # Temporários
 *.tmp
 ~$*
+
+# Previews locais de renderizacao
+_preview_*.html
