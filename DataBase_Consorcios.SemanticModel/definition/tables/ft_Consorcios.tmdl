@@ -109,6 +109,19 @@ table ft_Consorcios
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Data Base'
+		dataType: dateTime
+		formatString: dd/mm/yy
+		lineageTag: 7ec32f7d-5014-47f9-8792-a6f98012c314
+		summarizeBy: none
+		sourceColumn: Data Base
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
 	column Quantidade_de_grupos_constituídos_no_mês
 		dataType: int64
 		formatString: 0
@@ -162,19 +175,6 @@ table ft_Consorcios
 		sourceColumn: Quantidade_de_cotas_ativas_com_crédito_pendente_de_utilização
 
 		annotation SummarizationSetBy = Automatic
-
-	column 'Data Base'
-		dataType: dateTime
-		formatString: dd/mm/yy
-		lineageTag: 7ec32f7d-5014-47f9-8792-a6f98012c314
-		summarizeBy: none
-		sourceColumn: Data Base
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
-
-		annotation PBI_FormatHint = {"isDateTimeCustom":true}
 
 	partition ft_Consorcios = m
 		mode: import

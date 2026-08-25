@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "ciclokpi04espera0000",
   "position": {
-    "x": 952,
-    "y": 1531.0,
+    "x": 950.6404673393522,
+    "y": 1486.8151885289453,
     "z": 7940,
     "height": 82.8,
-    "width": 288.0,
+    "width": 288,
     "tabOrder": 28400
   },
   "visual": {
@@ -23,11 +23,11 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Espera Implícita (meses)"
+                  "Property": "Canceladas por 100 Ativas"
                 }
               },
-              "queryRef": "Medidas.Espera Implícita (meses)",
-              "nativeQueryRef": "Espera Implícita (meses)"
+              "queryRef": "Medidas.Canceladas por 100 Ativas",
+              "nativeQueryRef": "Canceladas por 100 Ativas"
             }
           ]
         }
@@ -75,7 +75,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Espera implícita, em meses'"
+                  "Value": "'Canceladas para cada 100 cotas ativas'"
                 }
               }
             },

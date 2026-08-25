@@ -1,9 +1,9 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "ciclocha02esperaseg0",
   "position": {
-    "x": 648,
-    "y": 1629.0,
+    "x": 646.6404673393522,
+    "y": 1584.8151885289453,
     "z": 7960,
     "height": 250,
     "width": 592,
@@ -42,11 +42,11 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Espera Implícita (meses)"
+                  "Property": "Taxa Contemplação Mensal %"
                 }
               },
-              "queryRef": "Medidas.Espera Implícita (meses)",
-              "nativeQueryRef": "Espera Implícita (meses)"
+              "queryRef": "Medidas.Taxa Contemplação Mensal %",
+              "nativeQueryRef": "Taxa Contemplação Mensal %"
             }
           ]
         }
@@ -61,7 +61,7 @@
                     "Entity": "Medidas"
                   }
                 },
-                "Property": "Espera Implícita (meses)"
+                "Property": "Taxa Contemplação Mensal %"
               }
             },
             "direction": "Descending"
@@ -126,7 +126,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Espera implícita por segmento, em meses'"
+                  "Value": "'Contemplação mensal por segmento: quanto da fila anda por mês'"
                 }
               }
             },

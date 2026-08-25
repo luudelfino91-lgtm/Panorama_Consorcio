@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "ciclonota01000000000",
   "position": {
-    "x": 40,
-    "y": 1889.0,
+    "x": 38.746680828465216,
+    "y": 1844.8858204992055,
     "z": 7970,
-    "height": 40,
-    "width": 1200,
+    "height": 61.858736059479547,
+    "width": 1199.7875730217736,
     "tabOrder": 28700
   },
   "visual": {

@@ -1,11 +1,11 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "3624b2bfae3a04e480c6",
   "position": {
-    "x": 40,
-    "y": 1422.6428571428573,
+    "x": 38.746680828465216,
+    "y": 1937.0,
     "z": 7000,
-    "height": 48.857142857142861,
+    "height": 48.85714285714286,
     "width": 1200,
     "tabOrder": 25000
   },
@@ -22,11 +22,10 @@
                     "value": "Análise e visualização por Lucas Delfino  ·  Dados, estratégia e gestão  ·  linkedin.com/in/lucasdelfino-",
                     "textStyle": {
                       "fontSize": "8.5pt",
-                      "color": "#6B6A80"
+                      "color": "#6b6a80"
                     }
                   }
-                ],
-                "horizontalTextAlignment": "left"
+                ]
               }
             ]
           }

@@ -42,11 +42,11 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Espera Implícita (meses)"
+                  "Property": "Taxa Contemplação Mensal %"
                 }
               },
-              "queryRef": "Medidas.Espera Implícita (meses)",
-              "nativeQueryRef": "Espera Implícita (meses)"
+              "queryRef": "Medidas.Taxa Contemplação Mensal %",
+              "nativeQueryRef": "Taxa Contemplação Mensal %"
             }
           ]
         }
@@ -61,7 +61,7 @@
                     "Entity": "Medidas"
                   }
                 },
-                "Property": "Espera Implícita (meses)"
+                "Property": "Taxa Contemplação Mensal %"
               }
             },
             "direction": "Descending"
@@ -126,7 +126,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Espera implícita por segmento, em meses'"
+                  "Value": "'Contemplação mensal por segmento: quanto da fila anda por mês'"
                 }
               }
             },

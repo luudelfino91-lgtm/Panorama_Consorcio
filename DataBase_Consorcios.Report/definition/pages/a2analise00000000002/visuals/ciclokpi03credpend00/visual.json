@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "ciclokpi03credpend00",
   "position": {
-    "x": 648,
-    "y": 1531.0,
+    "x": 646.6404673393522,
+    "y": 1486.8151885289453,
     "z": 7930,
     "height": 82.8,
-    "width": 288.0,
+    "width": 288,
     "tabOrder": 28300
   },
   "visual": {

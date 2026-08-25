@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "fca01376868a19c31bd3",
   "position": {
-    "x": 39.689922480620154,
+    "x": 249.68992248062017,
     "y": 1242.386616533706,
     "z": 25000,
     "height": 171,
-    "width": 1200,
+    "width": 990,
     "tabOrder": 24000
   },
   "visual": {
@@ -36,178 +36,20 @@
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Medidas"
+                      "Entity": "Indicadores"
                     }
                   },
-                  "Property": "Carteira Ativa (Fim)"
+                  "Property": "Indicador"
                 }
               },
-              "queryRef": "Medidas.Carteira Ativa (Fim)",
-              "nativeQueryRef": "Carteira Ativa (Fim)"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Medidas"
-                    }
-                  },
-                  "Property": "% Inadimplência (Fim)"
-                }
-              },
-              "queryRef": "Medidas.% Inadimplência (Fim)",
-              "nativeQueryRef": "% Inadimplência (Fim)"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Medidas"
-                    }
-                  },
-                  "Property": "% Inadimplência Contemplados"
-                }
-              },
-              "queryRef": "Medidas.% Inadimplência Contemplados",
-              "nativeQueryRef": "% Inadimplência Contemplados"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Medidas"
-                    }
-                  },
-                  "Property": "% Inadimplência Não Contemplados"
-                }
-              },
-              "queryRef": "Medidas.% Inadimplência Não Contemplados",
-              "nativeQueryRef": "% Inadimplência Não Contemplados"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Medidas"
-                    }
-                  },
-                  "Property": "Δ Contemplados vs Não Contemplados (p.p.)"
-                }
-              },
-              "queryRef": "Medidas.Δ Contemplados vs Não Contemplados (p.p.)",
-              "nativeQueryRef": "Δ Contemplados vs Não Contemplados (p.p.)"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Medidas"
-                    }
-                  },
-                  "Property": "Cotas Comercializadas"
-                }
-              },
-              "queryRef": "Medidas.Cotas Comercializadas",
-              "nativeQueryRef": "Cotas Comercializadas"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Medidas"
-                    }
-                  },
-                  "Property": "Taxa Adm Carteira %"
-                }
-              },
-              "queryRef": "Medidas.Taxa Adm Carteira %",
-              "nativeQueryRef": "Taxa Adm Carteira %"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Medidas"
-                    }
-                  },
-                  "Property": "Taxa Contemplação Mensal %"
-                }
-              },
-              "queryRef": "Medidas.Taxa Contemplação Mensal %",
-              "nativeQueryRef": "Taxa Contemplação Mensal %"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Medidas"
-                    }
-                  },
-                  "Property": "Espera Implícita (meses)"
-                }
-              },
-              "queryRef": "Medidas.Espera Implícita (meses)",
-              "nativeQueryRef": "Espera Implícita (meses)"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Medidas"
-                    }
-                  },
-                  "Property": "Canceladas por 100 Vendidas"
-                }
-              },
-              "queryRef": "Medidas.Canceladas por 100 Vendidas",
-              "nativeQueryRef": "Canceladas por 100 Vendidas"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Medidas"
-                    }
-                  },
-                  "Property": "% Crédito Pendente"
-                }
-              },
-              "queryRef": "Medidas.% Crédito Pendente",
-              "nativeQueryRef": "% Crédito Pendente"
+              "queryRef": "Indicadores.Indicador",
+              "nativeQueryRef": "Indicador"
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Medidas"
-                  }
-                },
-                "Property": "Carteira Ativa (Fim)"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
       }
     },
     "visualContainerObjects": {
@@ -224,7 +66,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Abertura por segmento do recorte selecionado'"
+                  "Value": "'Abertura por segmento · escolha os indicadores ao lado'"
                 }
               }
             },

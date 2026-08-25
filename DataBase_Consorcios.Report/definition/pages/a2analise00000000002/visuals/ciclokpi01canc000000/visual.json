@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "ciclokpi01canc000000",
   "position": {
-    "x": 40,
-    "y": 1531.0,
+    "x": 38.6404673393521,
+    "y": 1486.8151885289453,
     "z": 7910,
     "height": 82.8,
-    "width": 288.0,
+    "width": 288,
     "tabOrder": 28100
   },
   "visual": {

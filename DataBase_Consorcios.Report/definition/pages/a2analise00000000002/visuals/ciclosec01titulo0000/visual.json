@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "ciclosec01titulo0000",
   "position": {
-    "x": 40,
-    "y": 1479.0,
+    "x": 38.746680828465216,
+    "y": 1422.0711630377057,
     "z": 7900,
-    "height": 42,
-    "width": 1200,
+    "height": 51.662241104620286,
+    "width": 1199.7875730217736,
     "tabOrder": 28000
   },
   "visual": {
@@ -21,13 +21,12 @@
                   {
                     "value": "Ciclo da cota: cancelamento, contemplação e crédito em uso",
                     "textStyle": {
-                      "fontSize": "14pt",
                       "fontWeight": "bold",
-                      "color": "#0B2A4A"
+                      "fontSize": "14pt",
+                      "color": "#0b2a4a"
                     }
                   }
-                ],
-                "horizontalTextAlignment": "left"
+                ]
               }
             ]
           }
