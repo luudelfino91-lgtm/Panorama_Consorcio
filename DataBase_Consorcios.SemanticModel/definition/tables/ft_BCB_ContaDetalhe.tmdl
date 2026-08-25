@@ -1,0 +1,76 @@
+table ft_BCB_ContaDetalhe
+	lineageTag: ac00078e-bccc-44e6-858b-4d3c933efec8
+
+	column CNPJ
+		dataType: int64
+		isHidden
+		lineageTag: 0cebb4b1-f0e6-454a-a051-08d2b8855142
+		summarizeBy: none
+		sourceColumn: CNPJ
+
+	column Grupo
+		dataType: string
+		lineageTag: eba78b7a-b97e-492d-85d6-f6d23a6c1e2c
+		summarizeBy: none
+		sourceColumn: Grupo
+
+	column Ordem
+		dataType: int64
+		isHidden
+		lineageTag: dc8aba43-34b0-4197-a119-641f46e19bda
+		summarizeBy: none
+		sourceColumn: Ordem
+
+	column Conta
+		dataType: string
+		lineageTag: d0e807f8-ddc3-41c9-a446-f36b6cddeafe
+		summarizeBy: none
+		sourceColumn: Conta
+
+	column Saldo
+		dataType: double
+		formatString: #,0
+		lineageTag: 6f902712-4041-41c1-8205-dbb0fc68a690
+		summarizeBy: sum
+		sourceColumn: Saldo
+
+	partition ft_BCB_ContaDetalhe = m
+		mode: import
+		source =
+				let
+				    Origem = Csv.Document(File.Contents(Caminho & "BCB\202603CONSORCIOS.CSV"), [Delimiter=";", Columns=11, Encoding=28591, QuoteStyle=QuoteStyle.None]),
+				    #"Linhas Removidas" = Table.Skip(Origem, 3),
+				    #"Cabecalhos Promovidos" = Table.PromoteHeaders(#"Linhas Removidas", [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabecalhos Promovidos", {{"#DATA_BASE", Int64.Type}, {"DOCUMENTO", Int64.Type}, {"CNPJ", Int64.Type}, {"NOME_INSTITUICAO", type text}, {"NOME_CONTA", type text}, {"SALDO", type number}}, "pt-BR"),
+				    #"Filtrado Documento" = Table.SelectRows(#"Tipo Alterado", each [DOCUMENTO] = 4010),
+				    Mapa = #table(
+				        {"NOME_CONTA", "Grupo", "Ordem"},
+				        {
+				            {"DISPONIBILIDADES", "1. Ativo - itens operacionais", 10},
+				            {"TÍTULOS E VALORES MOBILIÁRIOS E INSTRUMENTOS FINANCEIROS DERIVATIVOS", "1. Ativo - itens operacionais", 20},
+				            {"OUTROS CRÉDITOS", "1. Ativo - itens operacionais", 30},
+				            {"OUTROS VALORES E BENS", "1. Ativo - itens operacionais", 40},
+				            {"Ativo Realizável", "1. Ativo - itens operacionais", 50},
+				            {"Ativo Permanente", "1. Ativo - itens operacionais", 60},
+				            {"IMOBILIZADO DE USO", "1. Ativo - itens operacionais", 70},
+				            {"OUTRAS OBRIGAÇÕES", "2. Passivo Exigível - itens operacionais", 10},
+				            {"Passivo Exigível", "2. Passivo Exigível - itens operacionais", 20},
+				            {"Capital Social", "3. Patrimônio Líquido", 10},
+				            {"PATRIMÔNIO LÍQUIDO", "3. Patrimônio Líquido", 20},
+				            {"TOTAL GERAL DO ATIVO", "4. Totais gerais conforme reportado", 10},
+				            {"TOTAL GERAL DO PASSIVO", "4. Totais gerais conforme reportado", 20},
+				            {"RECEITAS OPERACIONAIS", "5. Demonstração de Resultado", 10},
+				            {"RECEITAS DE TAXAS DE ADMINISTRAÇÃO DE CONSÓRCIOS", "5. Demonstração de Resultado", 20},
+				            {"(-) DESPESAS OPERACIONAIS", "5. Demonstração de Resultado", 30}
+				        }
+				    ),
+				    #"Mesclado" = Table.NestedJoin(#"Filtrado Documento", {"NOME_CONTA"}, Mapa, {"NOME_CONTA"}, "Mapa", JoinKind.Inner),
+				    #"Mapa Expandido" = Table.ExpandTableColumn(#"Mesclado", "Mapa", {"Grupo", "Ordem"}, {"Grupo", "Ordem"}),
+				    #"Agrupado" = Table.Group(#"Mapa Expandido", {"CNPJ", "Grupo", "Ordem", "NOME_CONTA"}, {{"Saldo", each List.Sum([SALDO]), type nullable number}}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Agrupado", {{"NOME_CONTA", "Conta"}}),
+				    #"Tipo Final" = Table.TransformColumnTypes(#"Colunas Renomeadas", {{"CNPJ", Int64.Type}, {"Grupo", type text}, {"Ordem", Int64.Type}, {"Conta", type text}, {"Saldo", type number}})
+				in
+				    #"Tipo Final"
+
+	annotation PBI_ResultType = Table
+

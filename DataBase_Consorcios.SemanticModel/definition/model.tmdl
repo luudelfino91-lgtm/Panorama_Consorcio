@@ -12,7 +12,7 @@ queryGroup Parametros
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
-annotation PBI_QueryOrder = ["ft_Consorcios","dCalendario","Caminho","Base"]
+annotation PBI_QueryOrder = ["ft_Consorcios","dCalendario","Caminho","Base","ft_BCB_Financeiro","ft_BCB_ContaDetalhe"]
 
 annotation PBI_ProTooling = ["MCP-PBIModeling","DaxQueryView_Desktop","DevMode"]
 
@@ -24,5 +24,10 @@ ref table dAdministradora
 ref table dAdministradoraChart
 ref table Indicadores_
 
-ref cultureInfo en-US
+ref table ft_BCB_Financeiro
+ref table ft_BCB_ContaDetalhe
+ref table TopNFinanceiro
+ref table LimiarConcentracao
+ref table FaixaConcentracao
 
+ref cultureInfo en-US

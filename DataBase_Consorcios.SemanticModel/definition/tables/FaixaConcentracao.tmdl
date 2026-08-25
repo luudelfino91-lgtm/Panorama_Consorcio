@@ -1,0 +1,14 @@
+table FaixaConcentracao
+	lineageTag: a108426d-ea59-4a1a-af98-5e76e14529ab
+
+	column Faixa
+		lineageTag: 254f5ced-2b26-43a1-86e0-d78dced7e085
+		isNameInferred
+		sourceColumn: [Faixa]
+
+	partition FaixaConcentracao = calculated
+		mode: import
+		source = DATATABLE ( "Faixa", STRING, { {"Top N"}, {"Demais"} } )
+
+	annotation PBI_Id = aecbedbfb4eb47bda64416380cbfa537
+

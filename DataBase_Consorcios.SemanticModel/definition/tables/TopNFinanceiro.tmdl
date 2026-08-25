@@ -1,0 +1,24 @@
+table TopNFinanceiro
+	lineageTag: 090f925f-8f7c-4503-bf2c-4ef89554f42d
+
+	/// Quantidade N usada nos rankings 'Top N' da página Financeiro (BCB) — ajustável pelo usuário.
+	measure 'TopNFinanceiro Value' = SELECTEDVALUE(TopNFinanceiro[TopNFinanceiro], 10)
+		formatString: 0
+		displayFolder: 23 Financeiro (BCB)\Parâmetros
+		lineageTag: d2cb6ce0-2a4e-4186-a97f-4eac71d31766
+
+	column TopNFinanceiro
+		dataType: int64
+		formatString: 0
+		lineageTag: 09f11314-87e2-4c47-a82c-588cf246f7d0
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition TopNFinanceiro = calculated
+		mode: import
+		source = GENERATESERIES(5, 20, 5)
+
+	annotation PBI_Id = 3a54e7ef529843c884c0f730eeb1018f
+

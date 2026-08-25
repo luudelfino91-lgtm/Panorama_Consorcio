@@ -1,0 +1,24 @@
+table LimiarConcentracao
+	lineageTag: 89e8f739-5ea3-47fa-9a29-2df3f94bb0ba
+
+	/// Limiar percentual (%) usado na análise de concentração dinâmica (tipo 80/20) da página Financeiro (BCB) — ajustável pelo usuário.
+	measure 'LimiarConcentracao Value' = SELECTEDVALUE(LimiarConcentracao[LimiarConcentracao], 80)
+		formatString: 0
+		displayFolder: 23 Financeiro (BCB)\Parâmetros
+		lineageTag: 42b86ac6-722f-4f39-9a22-3e2f24d1459c
+
+	column LimiarConcentracao
+		dataType: int64
+		formatString: 0
+		lineageTag: b2928aa6-a321-454c-a196-85d933530929
+		summarizeBy: none
+		sourceColumn: [Value]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition LimiarConcentracao = calculated
+		mode: import
+		source = GENERATESERIES(50, 95, 5)
+
+	annotation PBI_Id = 5e8a51c9a5fe4458973b8c037b160790
+

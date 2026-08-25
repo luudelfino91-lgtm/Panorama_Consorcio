@@ -10,3 +10,10 @@ relationship ft_Consorcios_CNPJ_da_Administradora_dAdministradora_CNPJ
 	fromColumn: ft_Consorcios.CNPJ_da_Administradora
 	toColumn: dAdministradora.CNPJ
 
+relationship ft_BCB_Financeiro_CNPJ_dAdministradora_CNPJ
+	fromColumn: ft_BCB_Financeiro.CNPJ
+	toColumn: dAdministradora.CNPJ
+
+relationship ft_BCB_ContaDetalhe_CNPJ_dAdministradora_CNPJ
+	fromColumn: ft_BCB_ContaDetalhe.CNPJ
+	toColumn: dAdministradora.CNPJ
