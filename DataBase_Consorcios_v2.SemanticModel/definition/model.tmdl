@@ -18,7 +18,7 @@ annotation PBI_ProTooling = ["MCP-PBIModeling","DaxQueryView_Desktop","DevMode"]
 
 ref table ft_Consorcios
 ref table Medidas
-ref table Indicadores
+ref table Indicadores_
 ref table dCalendario
 ref table dSegmento
 ref table dAdministradora

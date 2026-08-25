@@ -1,0 +1,61 @@
+table Indicadores_
+	lineageTag: cfa46429-34ce-4707-aca3-02e8cc2bba8a
+
+	column Indicadores_
+		lineageTag: 0dbc294a-3db9-4a18-8d98-6d825ac06ced
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Indicadores_ Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Indicadores_ Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Indicadores_ Fields'
+		isHidden
+		lineageTag: 20d0621e-d390-4867-af0d-03cbd48b92b1
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Indicadores_ Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Indicadores_ Order'
+		isHidden
+		formatString: 0
+		lineageTag: cb40451e-0a1a-43d4-9f68-8ee8970613f4
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Indicadores_ = calculated
+		mode: import
+		source =
+				{
+				    ("Carteira ativa", NAMEOF('Medidas'[Carteira Ativa (Fim)]), 0),
+				    ("Inadimplência", NAMEOF('Medidas'[% Inadimplência (Fim)]), 1),
+				    ("Inadimplência · contemplados", NAMEOF('Medidas'[% Inadimplência Contemplados]), 2),
+				    ("Inadimplência · não contemplados", NAMEOF('Medidas'[% Inadimplência Não Contemplados]), 3),
+				    ("Diferença contempl. x não contempl. (p.p.)", NAMEOF('Medidas'[Δ Contemplados vs Não Contemplados (p.p.)]), 4),
+				    ("Inadimplência vs mercado (p.p.)", NAMEOF('Medidas'[Δ vs Mercado (p.p.)]), 5),
+				    ("Taxa de administração", NAMEOF('Medidas'[Taxa Adm Carteira %]), 6),
+				    ("Contemplação mensal", NAMEOF('Medidas'[Taxa Contemplação Mensal %]), 7),
+				    ("Cotas vendidas", NAMEOF('Medidas'[Cotas Comercializadas]), 8),
+				    ("Canceladas por 100 vendidas", NAMEOF('Medidas'[Canceladas por 100 Vendidas]), 9),
+				    ("Canceladas por 100 ativas", NAMEOF('Medidas'[Canceladas por 100 Ativas]), 10),
+				    ("Crédito não utilizado", NAMEOF('Medidas'[% Crédito Pendente]), 11),
+				    ("Cotas quitadas", NAMEOF('Medidas'[Cotas Quitadas (Fim)]), 12),
+				    ("Grupos ativos", NAMEOF('Medidas'[Grupos Ativos (Fim)]), 13),
+				    ("Cotas por grupo", NAMEOF('Medidas'[Cotas por Grupo (Fim)]), 14)
+				}
+
+	annotation PBI_Id = 732deabd27174f47a13aef215768ecb7
+

@@ -401,12 +401,6 @@ table Medidas
 		displayFolder: 15 Cancelamento
 		lineageTag: c0000001-1111-4222-8333-000000000011
 
-	/// Cotas já canceladas para cada 100 cotas ativas hoje. Indicador de estoque: não depende de diferença entre períodos, então é estável em qualquer recorte. No mercado inteiro roda perto de 95 por 100.
-	measure 'Canceladas por 100 Ativas' = DIVIDE ( [Cotas Canceladas (Acum)], [Carteira Ativa (Fim)] ) * 100
-		formatString: #,0.0
-		displayFolder: 15 Cancelamento
-		lineageTag: c0000001-1111-4222-8333-000000000019
-
 	/// Cancelamentos por 100 cotas vendidas no mesmo período. Lê a qualidade da venda: quanto do que entra não se sustenta. Herda a ressalva de Cotas Canceladas no Período: usar em nível de mercado e segmento, não para ranquear administradoras.
 	measure 'Canceladas por 100 Vendidas' = DIVIDE ( [Cotas Canceladas no Período], [Cotas Comercializadas] ) * 100
 		formatString: #,0.0
@@ -448,6 +442,12 @@ table Medidas
 		formatString: 0.00%
 		displayFolder: 12 Inadimplência\Composição
 		lineageTag: c0000001-1111-4222-8333-000000000018
+
+	/// Cotas já canceladas para cada 100 cotas ativas hoje. Indicador de estoque: não depende de diferença entre períodos, então é estável em qualquer recorte. No mercado inteiro roda perto de 95 por 100.
+	measure 'Canceladas por 100 Ativas' = DIVIDE ( [Cotas Canceladas (Acum)], [Carteira Ativa (Fim)] ) * 100
+		formatString: #,0.0
+		displayFolder: 15 Cancelamento
+		lineageTag: c0000001-1111-4222-8333-000000000019
 
 	column Value
 		lineageTag: 2f7071b7-46d2-4a05-9bd6-ac097b1bbef2
