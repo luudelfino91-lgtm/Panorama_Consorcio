@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "fca01376868a19c31bd3",
   "position": {
     "x": 249.68992248062017,
@@ -13,6 +13,9 @@
     "visualType": "pivotTable",
     "query": {
       "queryState": {
+        "Columns": {
+          "projections": []
+        },
         "Rows": {
           "projections": [
             {
@@ -36,17 +39,244 @@
           "projections": [
             {
               "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Carteira Ativa (Fim)"
+                }
+              },
+              "queryRef": "Medidas.Carteira Ativa (Fim)",
+              "nativeQueryRef": "Carteira ativa",
+              "displayName": "Carteira ativa"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "% Inadimplência (Fim)"
+                }
+              },
+              "queryRef": "Medidas.% Inadimplência (Fim)",
+              "nativeQueryRef": "Inadimplência",
+              "displayName": "Inadimplência"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "% Inadimplência Contemplados"
+                }
+              },
+              "queryRef": "Medidas.% Inadimplência Contemplados",
+              "nativeQueryRef": "Inadimplência · contemplados",
+              "displayName": "Inadimplência · contemplados"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "% Inadimplência Não Contemplados"
+                }
+              },
+              "queryRef": "Medidas.% Inadimplência Não Contemplados",
+              "nativeQueryRef": "Inadimplência · não contemplados",
+              "displayName": "Inadimplência · não contemplados"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Δ Contemplados vs Não Contemplados (p.p.)"
+                }
+              },
+              "queryRef": "Medidas.Δ Contemplados vs Não Contemplados (p.p.)",
+              "nativeQueryRef": "Diferença contempl. x não contempl. (p.p.)",
+              "displayName": "Diferença contempl. x não contempl. (p.p.)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Δ vs Mercado (p.p.)"
+                }
+              },
+              "queryRef": "Medidas.Δ vs Mercado (p.p.)",
+              "nativeQueryRef": "Inadimplência vs mercado (p.p.)",
+              "displayName": "Inadimplência vs mercado (p.p.)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Taxa Adm Carteira %"
+                }
+              },
+              "queryRef": "Medidas.Taxa Adm Carteira %",
+              "nativeQueryRef": "Taxa de administração",
+              "displayName": "Taxa de administração"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Taxa Contemplação Mensal %"
+                }
+              },
+              "queryRef": "Medidas.Taxa Contemplação Mensal %",
+              "nativeQueryRef": "Contemplação mensal",
+              "displayName": "Contemplação mensal"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Cotas Comercializadas"
+                }
+              },
+              "queryRef": "Medidas.Cotas Comercializadas",
+              "nativeQueryRef": "Cotas vendidas",
+              "displayName": "Cotas vendidas"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Canceladas por 100 Vendidas"
+                }
+              },
+              "queryRef": "Medidas.Canceladas por 100 Vendidas",
+              "nativeQueryRef": "Canceladas por 100 vendidas",
+              "displayName": "Canceladas por 100 vendidas"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Canceladas por 100 Ativas"
+                }
+              },
+              "queryRef": "Medidas.Canceladas por 100 Ativas",
+              "nativeQueryRef": "Canceladas por 100 ativas",
+              "displayName": "Canceladas por 100 ativas"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "% Crédito Pendente"
+                }
+              },
+              "queryRef": "Medidas.% Crédito Pendente",
+              "nativeQueryRef": "Crédito não utilizado",
+              "displayName": "Crédito não utilizado"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Cotas Quitadas (Fim)"
+                }
+              },
+              "queryRef": "Medidas.Cotas Quitadas (Fim)",
+              "nativeQueryRef": "Cotas quitadas",
+              "displayName": "Cotas quitadas"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Grupos Ativos (Fim)"
+                }
+              },
+              "queryRef": "Medidas.Grupos Ativos (Fim)",
+              "nativeQueryRef": "Grupos ativos",
+              "displayName": "Grupos ativos"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Cotas por Grupo (Fim)"
+                }
+              },
+              "queryRef": "Medidas.Cotas por Grupo (Fim)",
+              "nativeQueryRef": "Cotas por grupo",
+              "displayName": "Cotas por grupo"
+            }
+          ],
+          "fieldParameters": [
+            {
+              "parameterExpr": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
                       "Entity": "Indicadores_"
                     }
                   },
-                  "Property": "Indicadores_ Fields"
+                  "Property": "Indicadores_"
                 }
               },
-              "queryRef": "Indicadores_.Indicadores_ Fields",
-              "nativeQueryRef": "Indicadores_ Fields"
+              "index": 0,
+              "length": 15
             }
           ]
         }

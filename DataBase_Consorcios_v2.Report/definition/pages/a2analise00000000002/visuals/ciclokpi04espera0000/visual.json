@@ -23,11 +23,11 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Canceladas por 100 Ativas"
+                  "Property": "Δ Inadimplência Não Contempl. (12M, p.p.)"
                 }
               },
-              "queryRef": "Medidas.Canceladas por 100 Ativas",
-              "nativeQueryRef": "Canceladas por 100 Ativas"
+              "queryRef": "Medidas.Δ Inadimplência Não Contempl. (12M, p.p.)",
+              "nativeQueryRef": "Δ Inadimplência Não Contempl. (12M, p.p.)"
             }
           ]
         }
@@ -75,7 +75,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Canceladas para cada 100 cotas ativas'"
+                  "Value": "'Inadimplência dos não contemplados: variação em 12 meses (p.p.)'"
                 }
               }
             },
