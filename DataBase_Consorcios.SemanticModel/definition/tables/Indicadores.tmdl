@@ -2,7 +2,6 @@ table Indicadores
 	lineageTag: d1000000-2222-4333-8444-000000000001
 
 	column Indicador
-		dataType: string
 		lineageTag: d1000000-2222-4333-8444-000000000002
 		summarizeBy: none
 		sourceColumn: [Value1]
@@ -14,11 +13,11 @@ table Indicadores
 		annotation SummarizationSetBy = Automatic
 
 	column 'Indicador Fields'
-		dataType: string
 		isHidden
 		lineageTag: d1000000-2222-4333-8444-000000000003
 		summarizeBy: none
 		sourceColumn: [Value2]
+		sortByColumn: Ordem
 
 		extendedProperty ParameterMetadata =
 				{
@@ -29,9 +28,8 @@ table Indicadores
 		annotation SummarizationSetBy = Automatic
 
 	column Ordem
-		dataType: int64
-		formatString: 0
 		isHidden
+		formatString: 0
 		lineageTag: d1000000-2222-4333-8444-000000000004
 		summarizeBy: sum
 		sourceColumn: [Value3]
@@ -40,25 +38,85 @@ table Indicadores
 
 	partition Indicadores = calculated
 		mode: import
-		source = ```
+		source =
+				
 				{
-				    ("Carteira ativa", NAMEOF('Medidas'[Carteira Ativa (Fim)]), 0),
-				    ("Inadimplência", NAMEOF('Medidas'[% Inadimplência (Fim)]), 1),
-				    ("Inadimplência · contemplados", NAMEOF('Medidas'[% Inadimplência Contemplados]), 2),
-				    ("Inadimplência · não contemplados", NAMEOF('Medidas'[% Inadimplência Não Contemplados]), 3),
-				    ("Diferença contempl. x não contempl. (p.p.)", NAMEOF('Medidas'[Δ Contemplados vs Não Contemplados (p.p.)]), 4),
-				    ("Inadimplência vs mercado (p.p.)", NAMEOF('Medidas'[Δ vs Mercado (p.p.)]), 5),
-				    ("Taxa de administração", NAMEOF('Medidas'[Taxa Adm Carteira %]), 6),
-				    ("Contemplação mensal", NAMEOF('Medidas'[Taxa Contemplação Mensal %]), 7),
-				    ("Cotas vendidas", NAMEOF('Medidas'[Cotas Comercializadas]), 8),
-				    ("Canceladas por 100 vendidas", NAMEOF('Medidas'[Canceladas por 100 Vendidas]), 9),
-				    ("Canceladas por 100 ativas", NAMEOF('Medidas'[Canceladas por 100 Ativas]), 10),
-				    ("Crédito não utilizado", NAMEOF('Medidas'[% Crédito Pendente]), 11),
-				    ("Cotas quitadas", NAMEOF('Medidas'[Cotas Quitadas (Fim)]), 12),
-				    ("Grupos ativos", NAMEOF('Medidas'[Grupos Ativos (Fim)]), 13),
-				    ("Cotas por grupo", NAMEOF('Medidas'[Cotas por Grupo (Fim)]), 14)
+				    (
+				        "Carteira ativa",
+				        NAMEOF ( [Carteira Ativa (Fim)] ),
+				        0
+				    ),
+				    (
+				        "Inadimplência",
+				        NAMEOF ( [% Inadimplência (Fim)] ),
+				        1
+				    ),
+				    (
+				        "Inadimplência · contemplados",
+				        NAMEOF ( [% Inadimplência Contemplados] ),
+				        2
+				    ),
+				    (
+				        "Inadimplência · não contemplados",
+				        NAMEOF ( [% Inadimplência Não Contemplados] ),
+				        3
+				    ),
+				    (
+				        "Diferença contempl. x não contempl. (p.p.)",
+				        NAMEOF ( [Δ Contemplados vs Não Contemplados (p.p.)] ),
+				        4
+				    ),
+				    (
+				        "Inadimplência vs mercado (p.p.)",
+				        NAMEOF ( [Δ vs Mercado (p.p.)] ),
+				        5
+				    ),
+				    (
+				        "Taxa de administração",
+				        NAMEOF ( [Taxa Adm Carteira %] ),
+				        6
+				    ),
+				    (
+				        "Contemplação mensal",
+				        NAMEOF ( [Taxa Contemplação Mensal %] ),
+				        7
+				    ),
+				    (
+				        "Cotas vendidas",
+				        NAMEOF ( [Cotas Comercializadas] ),
+				        8
+				    ),
+				    (
+				        "Canceladas por 100 vendidas",
+				        NAMEOF ( [Canceladas por 100 Vendidas] ),
+				        9
+				    ),
+				    (
+				        "Canceladas por 100 ativas",
+				        NAMEOF ( [Canceladas por 100 Ativas] ),
+				        10
+				    ),
+				    (
+				        "Crédito não utilizado",
+				        NAMEOF ( [% Crédito Pendente] ),
+				        11
+				    ),
+				    (
+				        "Cotas quitadas",
+				        NAMEOF ( [Cotas Quitadas (Fim)] ),
+				        12
+				    ),
+				    (
+				        "Grupos ativos",
+				        NAMEOF ( [Grupos Ativos (Fim)] ),
+				        13
+				    ),
+				    (
+				        "Cotas por grupo",
+				        NAMEOF ( [Cotas por Grupo (Fim)] ),
+				        14
+				    )
 				}
-				```
 
 	annotation PBI_Id = d1000000222243338444000000000001
 
