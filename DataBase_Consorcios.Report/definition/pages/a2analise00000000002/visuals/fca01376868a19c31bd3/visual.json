@@ -42,11 +42,11 @@
                       "Entity": "Indicadores_"
                     }
                   },
-                  "Property": "Indicadores_"
+                  "Property": "Indicadores_ Fields"
                 }
               },
-              "queryRef": "Indicadores_.Indicadores_",
-              "nativeQueryRef": "Indicadores_"
+              "queryRef": "Indicadores_.Indicadores_ Fields",
+              "nativeQueryRef": "Indicadores_ Fields"
             }
           ]
         }
