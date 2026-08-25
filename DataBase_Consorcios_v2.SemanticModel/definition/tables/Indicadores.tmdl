@@ -8,6 +8,9 @@ table Indicadores
 		sourceColumn: [Value1]
 		sortByColumn: Ordem
 
+		relatedColumnDetails
+			groupByColumn: 'Indicador Fields'
+
 		annotation SummarizationSetBy = Automatic
 
 	column 'Indicador Fields'
