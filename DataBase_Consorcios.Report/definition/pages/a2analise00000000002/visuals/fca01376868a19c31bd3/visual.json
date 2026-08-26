@@ -195,12 +195,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Canceladas por 100 Ativas"
+                  "Property": "Δ Inadimplência Não Contempl. (12M, p.p.)"
                 }
               },
-              "queryRef": "Medidas.Canceladas por 100 Ativas",
-              "nativeQueryRef": "Canceladas por 100 ativas",
-              "displayName": "Canceladas por 100 ativas"
+              "queryRef": "Medidas.Δ Inadimplência Não Contempl. (12M, p.p.)",
+              "nativeQueryRef": "Inadimpl. n/contempl. — variação 12M",
+              "displayName": "Inadimpl. n/contempl. — variação 12M"
             },
             {
               "field": {

@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "sliadmin0000000000005",
   "position": {
-    "x": 759.9787573021773,
-    "y": 882.0775358470526,
+    "x": 759.97875730217731,
+    "y": 882.07753584705256,
     "z": 15000,
-    "height": 65.25756771109931,
-    "width": 479.9150292087095,
+    "height": 65.257567711099313,
+    "width": 479.91502920870948,
     "tabOrder": 2000
   },
   "visual": {

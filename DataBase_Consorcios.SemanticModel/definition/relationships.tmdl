@@ -17,3 +17,4 @@ relationship ft_BCB_Financeiro_CNPJ_dAdministradora_CNPJ
 relationship ft_BCB_ContaDetalhe_CNPJ_dAdministradora_CNPJ
 	fromColumn: ft_BCB_ContaDetalhe.CNPJ
 	toColumn: dAdministradora.CNPJ
+

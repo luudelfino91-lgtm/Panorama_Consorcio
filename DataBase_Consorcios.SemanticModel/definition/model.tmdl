@@ -23,7 +23,6 @@ ref table dSegmento
 ref table dAdministradora
 ref table dAdministradoraChart
 ref table Indicadores_
-
 ref table ft_BCB_Financeiro
 ref table ft_BCB_ContaDetalhe
 ref table TopNFinanceiro
@@ -31,3 +30,4 @@ ref table LimiarConcentracao
 ref table FaixaConcentracao
 
 ref cultureInfo en-US
+
