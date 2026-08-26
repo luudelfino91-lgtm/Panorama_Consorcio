@@ -1,7 +1,7 @@
 table TopNFinanceiro
 	lineageTag: 090f925f-8f7c-4503-bf2c-4ef89554f42d
 
-	/// Quantidade N usada nos rankings 'Top N' da página Financeiro (BCB) — ajustável pelo usuário.
+	/// Quantidade N usada nos rankings 'Top N' da página Financeiro (BCB), ajustável pelo usuário.
 	measure 'TopNFinanceiro Value' = SELECTEDVALUE(TopNFinanceiro[TopNFinanceiro], 10)
 		formatString: 0
 		displayFolder: 23 Financeiro (BCB)\Parâmetros

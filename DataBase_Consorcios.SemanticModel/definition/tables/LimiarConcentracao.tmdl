@@ -1,7 +1,7 @@
 table LimiarConcentracao
 	lineageTag: 89e8f739-5ea3-47fa-9a29-2df3f94bb0ba
 
-	/// Limiar percentual (%) usado na análise de concentração dinâmica (tipo 80/20) da página Financeiro (BCB) — ajustável pelo usuário.
+	/// Limiar percentual (%) usado na análise de concentração dinâmica (tipo 80/20) da página Financeiro (BCB), ajustável pelo usuário.
 	measure 'LimiarConcentracao Value' = SELECTEDVALUE(LimiarConcentracao[LimiarConcentracao], 80)
 		formatString: 0
 		displayFolder: 23 Financeiro (BCB)\Parâmetros

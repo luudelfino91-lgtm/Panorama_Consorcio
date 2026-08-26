@@ -50,7 +50,7 @@ table Indicadores_
 				    ("Contemplação mensal", NAMEOF('Medidas'[Taxa Contemplação Mensal %]), 7),
 				    ("Cotas vendidas", NAMEOF('Medidas'[Cotas Comercializadas]), 8),
 				    ("Canceladas por 100 vendidas", NAMEOF('Medidas'[Canceladas por 100 Vendidas]), 9),
-				    ("Inadimpl. n/contempl. — variação 12M", NAMEOF('Medidas'[Δ Inadimplência Não Contempl. (12M, p.p.)]), 10),
+				    ("Inadimpl. n/contempl. (var. 12M)", NAMEOF('Medidas'[Δ Inadimplência Não Contempl. (12M, p.p.)]), 10),
 				    ("Crédito não utilizado", NAMEOF('Medidas'[% Crédito Pendente]), 11),
 				    ("Cotas quitadas", NAMEOF('Medidas'[Cotas Quitadas (Fim)]), 12),
 				    ("Grupos ativos", NAMEOF('Medidas'[Grupos Ativos (Fim)]), 13),

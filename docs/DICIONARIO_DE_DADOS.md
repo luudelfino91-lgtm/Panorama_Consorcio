@@ -1,4 +1,4 @@
-# Dicionário de dados — Panorama Consórcio
+# Dicionário de dados: Panorama Consórcio
 
 Resumo do modelo semântico. Desde que a página Financeiro (BCB) foi portada para a versão oficial, `DataBase_Consorcios` e `DataBase_Consorcios_v2` têm o mesmo modelo: 12 tabelas e 82 medidas.
 
@@ -6,7 +6,7 @@ A página **Documentação** do próprio relatório traz este mesmo dicionário,
 
 ## Tabelas
 
-### `ft_Consorcios` — fato operacional
+### `ft_Consorcios`: fato operacional
 
 Fonte: `Base/Consolidado.xlsx`, aba `SegmentosExtraidos` (base mensal ABAC, 73.536 linhas). Uma linha por administradora × segmento × mês.
 
@@ -18,9 +18,9 @@ Fonte: `Base/Consolidado.xlsx`, aba `SegmentosExtraidos` (base mensal ABAC, 73.5
 
 **Grupos e cotas fora da carteira:** `Quantidade_de_grupos_ativos`, `Quantidade_de_cotas_excluídas`, `Quantidade_de_cotas_excluídas_a_comercializar`
 
-> A consulta Power Query descartava seis dessas colunas (excluídas, excluídas a comercializar, grupos constituídos, grupos encerrados, quitadas e crédito pendente). Elas foram reativadas — o passo `Colunas Removidas` continua na consulta, mas com lista vazia.
+> A consulta Power Query descartava seis dessas colunas (excluídas, excluídas a comercializar, grupos constituídos, grupos encerrados, quitadas e crédito pendente). Elas foram reativadas, o passo `Colunas Removidas` continua na consulta, mas com lista vazia.
 
-### `ft_BCB_Financeiro` — fato financeiro
+### `ft_BCB_Financeiro`: fato financeiro
 
 Fonte: `Base/BCB/202603CONSORCIOS.CSV`, filtrado para o documento 4010 e pivotado. Uma linha por administradora × competência.
 
@@ -28,18 +28,18 @@ Fonte: `Base/BCB/202603CONSORCIOS.CSV`, filtrado para o documento 4010 e pivotad
 
 > O balancete é **acumulado no semestre**. Para a competência 03/2026, os valores representam três meses, não um. Toda leitura "por mês" precisa dividir pelos meses decorridos.
 
-### `ft_BCB_ContaDetalhe` — detalhe de contas
+### `ft_BCB_ContaDetalhe`: detalhe de contas
 
 `CNPJ`, `Grupo`, `Ordem`, `Conta`, `Saldo`. Alimenta a matriz de balanço padrão por administradora selecionada.
 
 ### Dimensões e parâmetros
 
-- **`dAdministradora`** — calculada a partir de `ft_Consorcios`. Uma linha por CNPJ, com o nome mais recente e a flag `Proibida` (identifica "PROIB" no nome histórico, sinalizando restrição regulatória).
-- **`dSegmento`** — fixa: Imóveis, Pesados, Motocicletas, Automóveis, Serviços, Eletroeletrônicos, cada um com ordem de exibição.
-- **`dCalendario`** — calendário diário para inteligência de tempo.
-- **`dAdministradoraChart`** — apoio ao eixo desacoplado do gráfico de inadimplência por administradora, para o slicer de seleção não filtrar as demais barras.
-- **`Indicadores_`** — parâmetro de campo com 15 medidas: deixa o profissional escolher o que comparar no comparador de administradoras. **Tabela desconectada por natureza** — não crie relação para ela.
-- **`TopNFinanceiro`, `LimiarConcentracao`, `FaixaConcentracao`** — parâmetros dos visuais da página Financeiro.
+- **`dAdministradora`**: calculada a partir de `ft_Consorcios`. Uma linha por CNPJ, com o nome mais recente e a flag `Proibida` (identifica "PROIB" no nome histórico, sinalizando restrição regulatória).
+- **`dSegmento`**: fixa, com Imóveis, Pesados, Motocicletas, Automóveis, Serviços, Eletroeletrônicos, cada um com ordem de exibição.
+- **`dCalendario`**: calendário diário para inteligência de tempo.
+- **`dAdministradoraChart`**: apoio ao eixo desacoplado do gráfico de inadimplência por administradora, para o slicer de seleção não filtrar as demais barras.
+- **`Indicadores_`**: parâmetro de campo com 15 medidas: deixa o profissional escolher o que comparar no comparador de administradoras. **Tabela desconectada por natureza**, não crie relação para ela.
+- **`TopNFinanceiro`, `LimiarConcentracao`, `FaixaConcentracao`**: parâmetros dos visuais da página Financeiro.
 
 ## Relacionamentos
 
@@ -77,26 +77,26 @@ Fonte: `Base/BCB/202603CONSORCIOS.CSV`, filtrado para o documento 4010 e pivotad
 
 ### Medidas-base
 
-- **Cotas Inadimplentes** — contempladas inadimplentes + não contempladas inadimplentes. **Não inclui cotas canceladas**, que são um estoque separado.
+- **Cotas Inadimplentes**: contempladas inadimplentes + não contempladas inadimplentes. **Não inclui cotas canceladas**, que são um estoque separado.
 - **Carteira Ativa** = Cotas Em Dia + Cotas Inadimplentes. É **estoque**: somar meses não faz sentido.
 - **% Inadimplência** = Cotas Inadimplentes ÷ Carteira Ativa. É a taxa da carteira inteira, não só dos contemplados.
-- **Cotas Comercializadas** — indicador central de vendas.
-- **Porte (Carteira Ativa)** — Pequena (<10 mil cotas), Média (10 mil a 100 mil), Grande (>100 mil). Faixas de referência iniciais, ajustáveis.
+- **Cotas Comercializadas**: indicador central de vendas.
+- **Porte (Carteira Ativa)**: Pequena (<10 mil cotas), Média (10 mil a 100 mil), Grande (>100 mil). Faixas de referência iniciais, ajustáveis.
 
 ### Contemplação (`14 Contemplação`)
 
-- **Taxa Contemplação Mensal %** — fração das cotas ainda não contempladas que é contemplada a cada mês, em média no período.
-- **Taxa Contemplação Esperada %** — taxa que a administradora teria se cada segmento dela rodasse na média do mercado.
-- **Índice de Contemplação (vs mix)** = observada ÷ esperada. Acima de 1 contempla mais rápido que o mercado no mesmo tipo de bem. **É a comparação justa entre administradoras**: a dispersão bruta chega a 10,5×, mas cai para a faixa de 0,4× a 1,9× quando se controla pelo mix de segmento — ou seja, metade da diferença aparente é produto, não desempenho.
+- **Taxa Contemplação Mensal %**: fração das cotas ainda não contempladas que é contemplada a cada mês, em média no período.
+- **Taxa Contemplação Esperada %**: taxa que a administradora teria se cada segmento dela rodasse na média do mercado.
+- **Índice de Contemplação (vs mix)** = observada ÷ esperada. Acima de 1 contempla mais rápido que o mercado no mesmo tipo de bem. **É a comparação justa entre administradoras**: a dispersão bruta chega a 10,5×, mas cai para a faixa de 0,4× a 1,9× quando se controla pelo mix de segmento, ou seja, metade da diferença aparente é produto, não desempenho.
 
 > A antiga medida **Espera Implícita (meses)** foi removida. Ela calculava `1 ÷ taxa mensal`, fórmula válida apenas para uma fila em regime estável; o consórcio é de prazo fechado e com fila em crescimento acelerado, o que produzia projeções de 200 a 600 meses, sem significado.
 
 ### Cancelamento (`15 Cancelamento`)
 
-- **Cotas Canceladas (Acum)** — estoque acumulado no fim do período. Não deve ser somado entre meses.
-- **Cotas Canceladas no Período** — soma apenas as variações **positivas** do estoque acumulado mês a mês. Quedas no acumulado são retificação da fonte e entram como zero.
-- **Canceladas por 100 Ativas** — indicador de estoque, estável em qualquer recorte.
-- **Canceladas por 100 Vendidas** — lê a qualidade da venda.
+- **Cotas Canceladas (Acum)**: estoque acumulado no fim do período. Não deve ser somado entre meses.
+- **Cotas Canceladas no Período**: soma apenas as variações **positivas** do estoque acumulado mês a mês. Quedas no acumulado são retificação da fonte e entram como zero.
+- **Canceladas por 100 Ativas**: indicador de estoque, estável em qualquer recorte.
+- **Canceladas por 100 Vendidas**: lê a qualidade da venda.
 
 > **Ressalva de qualidade (importante):** o acumulado de cotas excluídas sofre retificações na fonte. 18,7% das variações mensais por administradora são negativas e 159 das 190 administradoras têm ao menos uma queda no acumulado, o que produz valores impossíveis em nível individual. No agregado do mercado o comportamento é estável (7 quedas em 88 meses). **Use estas medidas para mercado e segmento, não para ranquear administradoras.**
 
@@ -104,7 +104,7 @@ Fonte: `Base/BCB/202603CONSORCIOS.CSV`, filtrado para o documento 4010 e pivotad
 
 - **Cotas Quitadas (Fim)**, **Contempladas Acum (Fim)**, **Crédito Pendente (Fim)**, **% Crédito Pendente**.
 
-O crédito pendente merece leitura cuidadosa: um percentual alto pode refletir tempo estrutural de uso (em Imóveis o crédito leva cerca de 18 meses para ser deployado), fricção na liberação pela administradora, aceleração recente da contemplação, ou mudança de comportamento do adquirente. **A base registra que a carta não foi usada, não o motivo** — não é seguro atribuir o número a nenhuma dessas causas isoladamente.
+O crédito pendente merece leitura cuidadosa: um percentual alto pode refletir tempo estrutural de uso (em Imóveis o crédito leva cerca de 18 meses para ser deployado), fricção na liberação pela administradora, aceleração recente da contemplação, ou mudança de comportamento do adquirente. **A base registra que a carta não foi usada, não o motivo**, não é seguro atribuir o número a nenhuma dessas causas isoladamente.
 
 ### Financeiro BCB (`23 Financeiro (BCB)`)
 
@@ -116,7 +116,7 @@ PL, receita e despesa operacional, resultado e margem do período, receita de ta
 
 ## Quebras de série e limitações
 
-- **jan/2024 — Resolução BCB nº 285.** A exclusão da cota passou a ocorrer após três meses consecutivos de inadimplência. A taxa do mercado caiu 1,55 p.p. em um único mês, contra 0,27 p.p. de variação típica. Comparações que cruzam essa data medem também a mudança de regra.
+- **jan/2024, a Resolução BCB nº 285.** A exclusão da cota passou a ocorrer após três meses consecutivos de inadimplência. A taxa do mercado caiu 1,55 p.p. em um único mês, contra 0,27 p.p. de variação típica. Comparações que cruzam essa data medem também a mudança de regra.
 - **2026 é ano parcial.** A base vai até maio. CAGR e comparações anuais usam somente anos completos, de 2019 a 2025.
 - **Não existe valor em reais na base operacional.** A ABAC traz quantidades de cotas. Valores em reais só existem no balancete do BCB, em nível de administradora, não de cota.
 - **Divergência de classificação ABAC × base.** Automóveis e motocicletas, tomados individualmente, divergem entre a publicação da ABAC e esta base; a soma dos dois bate dentro de 0,3%.
@@ -125,5 +125,5 @@ PL, receita e despesa operacional, resultado e margem do período, receita de ta
 
 | Fonte | Arquivo | Periodicidade | Cobertura |
 |---|---|---|---|
-| ABAC | `Base/Consolidado.xlsx` | Mensal | jan/2019 a mai/2026 — base operacional oficial do relatório |
+| ABAC | `Base/Consolidado.xlsx` | Mensal | jan/2019 a mai/2026, base operacional oficial do relatório |
 | Banco Central, documento 4010 | `Base/BCB/202603CONSORCIOS.CSV` | Semestral acumulado, publicação mensal | Balancete patrimonial, competência 03/2026 |

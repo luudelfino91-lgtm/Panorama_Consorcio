@@ -222,19 +222,7 @@ cultureInfo en-US
 			          "ConceptualProperty": "Canceladas por 100 Ativas"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Canceladas por 100 ativas": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    },
 			    "medidas.crédito_pendente": {
 			      "Definition": {
@@ -310,6 +298,27 @@ cultureInfo en-US
 			      "Terms": [
 			        {
 			          "Cotas por grupo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "medidas.δ_inadimplência_não_contempl__12m_p_p_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Medidas",
+			          "ConceptualProperty": "Δ Inadimplência Não Contempl. (12M, p.p.)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Inadimpl. n/contempl. — variação 12M": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",

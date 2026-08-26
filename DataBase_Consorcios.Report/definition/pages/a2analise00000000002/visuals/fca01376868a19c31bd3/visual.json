@@ -199,8 +199,8 @@
                 }
               },
               "queryRef": "Medidas.Δ Inadimplência Não Contempl. (12M, p.p.)",
-              "nativeQueryRef": "Inadimpl. n/contempl. — variação 12M",
-              "displayName": "Inadimpl. n/contempl. — variação 12M"
+              "nativeQueryRef": "Inadimpl. n/contempl. (var. 12M)",
+              "displayName": "Inadimpl. n/contempl. (var. 12M)"
             },
             {
               "field": {
